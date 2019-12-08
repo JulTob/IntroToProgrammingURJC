@@ -1,0 +1,25 @@
+10 columnas 
+9 filas
+
+succ (elemento) pasa al siguiente
+
+fichas: marmol pino acero cristal
+
+jugarcuatroenraya
+	
+	bucle >> turno (ganaalguien)	
+		meteficha
+		cae
+		compruebasigana
+			cambiajugador//fin
+		imprimetablero	( vacia= . , inicial)
+	
+
+procedures main();
+
+
+prepararcr();
+
+jugarcuatroenraya();
+
+recogercr();
