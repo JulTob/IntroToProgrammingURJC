@@ -1,0 +1,61 @@
+/*		Julio Toboso
+*		Programa de practica 2015 - 2016 
+*		Juego de Cuatro En Raya
+* 
+*		Versión definitiva
+*/
+
+program cuatroenraya ;
+
+/*****  Tipos *****/
+
+types:											
+	TipoJugador = (Pino, Cristal, Vacio);
+	
+consts:
+	PrimerJug 		= Pino;
+	UltimoJug 		= Cristal;
+	
+	AltoColumnas 	= 9;
+	NumeroColumnas 	= 10;
+
+types:
+	TipoQueColumna 	= int 1..NumeroColumnas;
+	TipoAlturas		= int 1..AltoColumnas;
+	
+	TipoPosicion	= record
+	{
+		columna	: TipoQueColumna;
+		altura	: TipoAlturas;
+	};
+	TipoCasilla = record
+	{
+		pos 		: TipoPosicion;
+		contenido	: TipoJugador;
+	};
+	
+types: 
+	TipoFichaNoGana = char 'a'..'z';
+	TipoFichaGana	= char	'A'..'Z';
+	TipoFicha	= record
+	{
+		nogana 	: TipoFichaNoGana;
+		gana	: TipoFichaGana;
+	};
+	TipoColumna = array[1..NumeroColumnas] of TipoFicha;
+	TipoTablero = array[1..NumeroColumnas] of TipoColumna;
+		
+types: 
+	TipoPtJuego = ^TipoNdJuego;
+	TipoNdJuego = record
+	{
+		jugador 	: TipoJugador;
+		movimiento	: TipoQueColumna;
+		psiguiente	: TipoPtJuego;
+	};
+	TipoJuego = record
+	{
+		ptprimera	: TipoPtJuego;
+		ptultima	: TipoPtJuego;
+	};
+	
