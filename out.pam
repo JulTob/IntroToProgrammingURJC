@@ -1,0 +1,2475 @@
+#!/usr/local/bin/pam
+entry 30
+types 30
+0 bool b  0 1 2 4 0
+1 char c  0 255 256 4 0
+2 int i  -2147483646 2147483647 0 4 0
+3 float r  0 0 0 4 0
+4 $nil p  0 0 0 8 0
+5 file f  0 0 0 4 0
+6 strength h  0 255 0 4 0
+7 opacity l  0 1 0 4 0
+8 color e  0 6 7 4 0
+Black
+Red
+Green
+Blue
+Yellow
+Orange
+White
+9 button u  0 255 0 4 0
+10 sound e  0 19 20 4 0
+Woosh
+Beep
+Sheep
+Phaser
+Rocket
+CNote
+CsharpNote
+DNote
+DsharpNote
+ENote
+FNote
+FsharpNote
+GNote
+GsharpNote
+ANote
+AsharpNote
+BNote
+Bomb
+Fail
+Tada
+11 TipoJugador e  0 4 5 4 0
+Pino
+Marmol
+Acero
+Cristal
+Vacio
+12 TipoAltura i  1 9 9 4 0
+13 TipoQueColumna i  1 12 12 4 0
+14 $range1 i  1 9 9 4 0
+15 TipoColumnas a  1 9 9 36 11
+16 $range2 i  1 12 12 4 0
+17 TipoPosicion a  1 12 12 432 15
+18 $range3 i  1 12 12 4 0
+19 TipoContadores a  1 12 12 48 12
+20 TipoTablero R  0 0 2 480 0
+pos 17 0x0
+cont 19 0x1b0
+21 $range4 i  1 4 4 4 0
+22 TipoChequeo a  1 4 4 16 11
+23 TipoJugada R  0 0 2 8 0
+jugador 11 0x0
+col 13 0x4
+24 TipoGanador R  0 0 2 8 0
+quien 11 0x0
+gana 0 0x4
+25 TipoPtrJuego p  0 0 0 8 26
+26 TipoNdJuego R  0 0 4 504 0
+jugada 23 0x0
+tablero 20 0x8
+ganador 24 0x1e8
+psig 25 0x1f0
+27 TipoJuego R  0 0 2 16 0
+pinicio 25 0x0
+pultimo 25 0x8
+28 $tstr11 s  0 10 11 44 1
+29 $tstr6 s  0 5 6 24 1
+vars 36
+Maxint 2 0x0 2147483647 'CuatroEnRaya.p' 14
+Minint 2 0x4 -2147483646 'CuatroEnRaya.p' 14
+Maxchar 1 0x8 255 'CuatroEnRaya.p' 14
+Minchar 1 0xc 0 'CuatroEnRaya.p' 14
+Minstrength 6 0x10 0 'CuatroEnRaya.p' 14
+Maxstrength 6 0x14 255 'CuatroEnRaya.p' 14
+Transp 7 0x18 0.000000e+00 'CuatroEnRaya.p' 14
+Tlucid 7 0x1c 5.000000e-01 'CuatroEnRaya.p' 14
+Opaque 7 0x20 1.000000e+00 'CuatroEnRaya.p' 14
+NoBut 9 0x24 0 'CuatroEnRaya.p' 14
+Eol 1 0x28 10 'CuatroEnRaya.p' 299
+Tab 1 0x2c 9 'CuatroEnRaya.p' 14
+Nul 1 0x30 0 'CuatroEnRaya.p' 14
+Up 1 0x34 245 'CuatroEnRaya.p' 14
+MetaRight 1 0x38 248 'CuatroEnRaya.p' 14
+Down 1 0x3c 244 'CuatroEnRaya.p' 14
+Right 1 0x40 242 'CuatroEnRaya.p' 14
+Eof 1 0x44 255 'CuatroEnRaya.p' 302
+Left 1 0x48 243 'CuatroEnRaya.p' 14
+Shift 1 0x4c 241 'CuatroEnRaya.p' 14
+Ctrl 1 0x50 240 'CuatroEnRaya.p' 14
+Esc 1 0x54 27 'CuatroEnRaya.p' 14
+Return 1 0x58 246 'CuatroEnRaya.p' 14
+Del 1 0x5c 249 'CuatroEnRaya.p' 14
+MetaLeft 1 0x60 247 'CuatroEnRaya.p' 14
+NJugadores 2 0x64 4 'CuatroEnRaya.p' 22
+PrimerJug 11 0x68 0 'CuatroEnRaya.p' 23
+UltimoJug 11 0x6c 3 'CuatroEnRaya.p' 24
+AltoColumnas 2 0x70 9 'CuatroEnRaya.p' 609
+NumeroColumnas 2 0x74 12 'CuatroEnRaya.p' 607
+XnR 2 0x78 4 'CuatroEnRaya.p' 475
+$s0 28 0x7c 'Error fatal' 'CuatroEnRaya.p' 637
+$s1 29 0xa8 'Tablas' 'CuatroEnRaya.p' 648
+stdin 5 0xc0 - 'CuatroEnRaya.p' 14
+stdout 5 0xc4 - 'CuatroEnRaya.p' 14
+stdgraph 5 0xc8 - 'CuatroEnRaya.p' 14
+procs 31
+0 simb 0x00000 1 1 4 4 4 'CuatroEnRaya.p' 569
+j 11 0x0 - 'CuatroEnRaya.p' 83
+$v0 11 0x0 - 'CuatroEnRaya.p' 95
+1 iniciaganador 0x00048 0 1 8 0 8 'CuatroEnRaya.p' 503
+gndr 24 0x0 - 'CuatroEnRaya.p' 105
+2 nuevoscontadores 0x0005c 0 2 48 0 52 'CuatroEnRaya.p' 145
+i 2 0x0 - 'CuatroEnRaya.p' 115
+cntdr 19 0x4 - 'CuatroEnRaya.p' 119
+3 nuevopos 0x00092 0 3 432 0 440 'CuatroEnRaya.p' 144
+pos 17 0x0 - 'CuatroEnRaya.p' 137
+i 2 0x1b0 - 'CuatroEnRaya.p' 133
+j 2 0x1b4 - 'CuatroEnRaya.p' 133
+4 nuevotablero 0x000f2 0 1 480 0 480 'CuatroEnRaya.p' 161
+tblr 20 0x0 - 'CuatroEnRaya.p' 146
+5 nuevojuego 0x00106 0 2 16 0 24 'CuatroEnRaya.p' 626
+juego 27 0x0 - 'CuatroEnRaya.p' 168
+pjuego 25 0x10 - 'CuatroEnRaya.p' 166
+6 limpiarjg 0x00169 1 1 0 8 8 'CuatroEnRaya.p' 655
+jg 27 0x0 - 'CuatroEnRaya.p' 178
+pjug 25 0x0 - 'CuatroEnRaya.p' 179
+7 esnumero 0x00195 1 0 4 4 0 'CuatroEnRaya.p' 275
+c 1 0x0 - 'CuatroEnRaya.p' 185
+8 esletra 0x001a6 1 0 4 4 0 'CuatroEnRaya.p' 198
+c 1 0x0 - 'CuatroEnRaya.p' 190
+9 leerjugador 0x001c7 2 2 0 16 8 'CuatroEnRaya.p' 317
+jugador 11 0x8 - 'CuatroEnRaya.p' 217
+error 0 0x0 - 'CuatroEnRaya.p' 222
+c 1 0x0 - 'CuatroEnRaya.p' 201
+$v1 1 0x4 - 'CuatroEnRaya.p' 220
+10 leernumero 0x00293 1 2 0 8 8 'CuatroEnRaya.p' 256
+i 2 0x0 - 'CuatroEnRaya.p' 237
+c 1 0x0 - 'CuatroEnRaya.p' 240
+j 2 0x4 - 'CuatroEnRaya.p' 237
+11 leercolumna 0x002e6 2 4 0 16 16 'CuatroEnRaya.p' 320
+col 13 0x8 - 'CuatroEnRaya.p' 260
+error 0 0x0 - 'CuatroEnRaya.p' 263
+c 1 0x0 - 'CuatroEnRaya.p' 254
+i 2 0x4 - 'CuatroEnRaya.p' 257
+coltemp 2 0x8 - 'CuatroEnRaya.p' 260
+para 0 0xc - 'CuatroEnRaya.p' 261
+12 saltarmorralla 0x00331 1 3 0 8 12 'CuatroEnRaya.p' 319
+error 0 0x0 - 'CuatroEnRaya.p' 268
+parar 0 0x0 - 'CuatroEnRaya.p' 288
+c 1 0x4 - 'CuatroEnRaya.p' 285
+$v2 1 0x8 - 'CuatroEnRaya.p' 286
+13 terminarmorralla 0x0038a 1 3 0 8 12 'CuatroEnRaya.p' 322
+error 0 0x0 - 'CuatroEnRaya.p' 291
+parar 0 0x0 - 'CuatroEnRaya.p' 307
+c 1 0x4 - 'CuatroEnRaya.p' 305
+$v3 1 0x8 - 'CuatroEnRaya.p' 306
+14 leerjugada 0x003d9 2 1 0 16 4 'CuatroEnRaya.p' 534
+jugada 23 0x8 - 'CuatroEnRaya.p' 320
+error 0 0x0 - 'CuatroEnRaya.p' 322
+c 1 0x0 - 'CuatroEnRaya.p' 311
+15 tablerodejugada 0x0040d 3 2 480 488 484 'CuatroEnRaya.p' 539
+tablero 20 0x8 - 'CuatroEnRaya.p' 336
+Jugador 11 0x4 - 'CuatroEnRaya.p' 339
+c 13 0x0 - 'CuatroEnRaya.p' 339
+tblr 20 0x0 - 'CuatroEnRaya.p' 341
+altr 12 0x1e0 - 'CuatroEnRaya.p' 339
+16 chequeoigual 0x00454 1 3 4 16 12 'CuatroEnRaya.p' 480
+chequeo 22 0x0 - 'CuatroEnRaya.p' 355
+es 0 0x0 - 'CuatroEnRaya.p' 358
+i 2 0x4 - 'CuatroEnRaya.p' 355
+jgdr 11 0x8 - 'CuatroEnRaya.p' 355
+17 cheqcol 0x004a6 3 4 0 492 28 'CuatroEnRaya.p' 391
+gndr 24 0x1e4 - 'CuatroEnRaya.p' 378
+tblr 20 0x4 - 'CuatroEnRaya.p' 373
+c 2 0x0 - 'CuatroEnRaya.p' 373
+chequeo 22 0x0 - 'CuatroEnRaya.p' 378
+igual 0 0x10 - 'CuatroEnRaya.p' 377
+i 2 0x14 - 'CuatroEnRaya.p' 373
+j 2 0x18 - 'CuatroEnRaya.p' 373
+18 cheqvert 0x0053f 1 2 8 480 12 'CuatroEnRaya.p' 509
+tblr 20 0x0 - 'CuatroEnRaya.p' 391
+gndr 24 0x0 - 'CuatroEnRaya.p' 393
+c 13 0x8 - 'CuatroEnRaya.p' 391
+19 cheqfil 0x0057b 3 4 0 492 28 'CuatroEnRaya.p' 425
+gndr 24 0x1e4 - 'CuatroEnRaya.p' 412
+tblr 20 0x4 - 'CuatroEnRaya.p' 407
+f 2 0x0 - 'CuatroEnRaya.p' 407
+chequeo 22 0x0 - 'CuatroEnRaya.p' 412
+igual 0 0x10 - 'CuatroEnRaya.p' 411
+i 2 0x14 - 'CuatroEnRaya.p' 407
+j 2 0x18 - 'CuatroEnRaya.p' 407
+20 cheqhor 0x00614 1 2 8 480 12 'CuatroEnRaya.p' 505
+tblr 20 0x0 - 'CuatroEnRaya.p' 425
+gndr 24 0x0 - 'CuatroEnRaya.p' 427
+f 12 0x8 - 'CuatroEnRaya.p' 425
+21 cheqds 0x00650 2 7 0 488 40 'CuatroEnRaya.p' 495
+gndr 24 0x1e0 - 'CuatroEnRaya.p' 453
+tblr 20 0x0 - 'CuatroEnRaya.p' 448
+chequeo 22 0x0 - 'CuatroEnRaya.p' 453
+igual 0 0x10 - 'CuatroEnRaya.p' 452
+i 2 0x14 - 'CuatroEnRaya.p' 446
+j 2 0x18 - 'CuatroEnRaya.p' 447
+k 2 0x1c - 'CuatroEnRaya.p' 448
+c 2 0x20 - 'CuatroEnRaya.p' 448
+f 2 0x24 - 'CuatroEnRaya.p' 448
+22 cheqdb 0x00722 2 7 0 488 40 'CuatroEnRaya.p' 496
+gndr 24 0x1e0 - 'CuatroEnRaya.p' 484
+tblr 20 0x0 - 'CuatroEnRaya.p' 479
+chequeo 22 0x0 - 'CuatroEnRaya.p' 484
+igual 0 0x10 - 'CuatroEnRaya.p' 483
+i 2 0x14 - 'CuatroEnRaya.p' 477
+j 2 0x18 - 'CuatroEnRaya.p' 478
+k 2 0x1c - 'CuatroEnRaya.p' 479
+c 2 0x20 - 'CuatroEnRaya.p' 479
+f 2 0x24 - 'CuatroEnRaya.p' 479
+23 cheqdiag 0x007f4 1 1 8 480 8 'CuatroEnRaya.p' 512
+tblr 20 0x0 - 'CuatroEnRaya.p' 496
+gndr 24 0x0 - 'CuatroEnRaya.p' 497
+24 chequeaganador 0x00810 1 1 8 480 8 'CuatroEnRaya.p' 644
+tblr 20 0x0 - 'CuatroEnRaya.p' 512
+gndr 24 0x0 - 'CuatroEnRaya.p' 517
+25 avanzacontador 0x00850 2 0 0 12 0 'CuatroEnRaya.p' 542
+cntdr 19 0x4 - 'CuatroEnRaya.p' 525
+col 13 0x0 - 'CuatroEnRaya.p' 525
+26 turno 0x0087e 2 2 0 16 16 'CuatroEnRaya.p' 633
+juego 27 0x8 - 'CuatroEnRaya.p' 546
+error 0 0x0 - 'CuatroEnRaya.p' 535
+jugada 23 0x0 - 'CuatroEnRaya.p' 542
+pjuego 25 0x8 - 'CuatroEnRaya.p' 546
+27 imprimetablero 0x0090d 1 5 0 480 24 'CuatroEnRaya.p' 640
+tablero 20 0x0 - 'CuatroEnRaya.p' 564
+i 12 0x0 - 'CuatroEnRaya.p' 564
+j 13 0x4 - 'CuatroEnRaya.p' 564
+gndr 24 0x8 - 'CuatroEnRaya.p' 565
+c 1 0x10 - 'CuatroEnRaya.p' 571
+jgdr 11 0x14 - 'CuatroEnRaya.p' 569
+28 escribejuego 0x009c6 1 2 0 16 16 'CuatroEnRaya.p' 653
+juego 27 0x0 - 'CuatroEnRaya.p' 585
+gndr 24 0x0 - 'CuatroEnRaya.p' 592
+pjuego 25 0x8 - 'CuatroEnRaya.p' 597
+29 tablas 0x00a30 1 3 4 480 12 'CuatroEnRaya.p' 645
+tablero 20 0x0 - 'CuatroEnRaya.p' 611
+es 0 0x0 - 'CuatroEnRaya.p' 617
+j 2 0x4 - 'CuatroEnRaya.p' 611
+i 2 0x8 - 'CuatroEnRaya.p' 611
+30 main 0x00a9f 0 4 0 0 32 'CuatroEnRaya.p' 620
+juego 27 0x0 - 'CuatroEnRaya.p' 655
+para 0 0x10 - 'CuatroEnRaya.p' 650
+error 0 0x14 - 'CuatroEnRaya.p' 635
+ganador 24 0x18 - 'CuatroEnRaya.p' 650
+text 2867
+# simb()
+# {...}
+# {...}
+# %$v0: TipoJugador = $j: TipoJugador
+00000	arg	0x0000000000	# $j: TipoJugador;
+00002	lvar	0x0000000000	# %$v0: TipoJugador;
+00004	stom	0x000000000b
+# if(==(%$v0: TipoJugador, Pino=Pino))
+00006	push	0x0000000000	# Pino=Pino;
+00008	lvar	0x0000000000	# %$v0: TipoJugador;
+0000a	ind	0x0000000004
+0000c	eq	
+0000d	jmpf	0x0000000015
+# {...}
+# return 'p'
+0000f	push	0x0000000070	# 'p';
+00011	ret	0x0000000000
+00013	jmp	0x0000000046
+# if(==(%$v0: TipoJugador, Cristal=Cristal))
+00015	push	0x0000000003	# Cristal=Cristal;
+00017	lvar	0x0000000000	# %$v0: TipoJugador;
+00019	ind	0x0000000004
+0001b	eq	
+0001c	jmpf	0x0000000024
+# {...}
+# return 'c'
+0001e	push	0x0000000063	# 'c';
+00020	ret	0x0000000000
+00022	jmp	0x0000000046
+# if(==(%$v0: TipoJugador, Marmol=Marmol))
+00024	push	0x0000000001	# Marmol=Marmol;
+00026	lvar	0x0000000000	# %$v0: TipoJugador;
+00028	ind	0x0000000004
+0002a	eq	
+0002b	jmpf	0x0000000033
+# {...}
+# return 'm'
+0002d	push	0x000000006d	# 'm';
+0002f	ret	0x0000000000
+00031	jmp	0x0000000046
+# if(==(%$v0: TipoJugador, Acero=Acero))
+00033	push	0x0000000002	# Acero=Acero;
+00035	lvar	0x0000000000	# %$v0: TipoJugador;
+00037	ind	0x0000000004
+00039	eq	
+0003a	jmpf	0x0000000042
+# {...}
+# return 'a'
+0003c	push	0x0000000061	# 'a';
+0003e	ret	0x0000000000
+00040	jmp	0x0000000046
+# {...}
+# return '.'
+00042	push	0x000000002e	# '.';
+00044	ret	0x0000000000
+# return <nil>
+00046	ret	0x0000000000
+# iniciaganador()
+# {...}
+# .(%gndr: TipoGanador, quien: TipoJugador) = Vacio=Vacio
+00048	push	0x0000000004	# Vacio=Vacio;
+0004a	lvar	0x0000000000	# .; %gndr: TipoGanador;
+0004c	sto	0x000000000b
+# .(%gndr: TipoGanador, gana: bool) = false
+0004e	push	0x0000000000	# false;
+00050	lvar	0x0000000000	# .; %gndr: TipoGanador;
+00052	fld	0x0000000004
+00054	sto	0x0000000000
+# return %gndr: TipoGanador
+00056	lvar	0x0000000000	# %gndr: TipoGanador;
+00058	ind	0x0000000008
+0005a	ret	0x0000000001
+# nuevoscontadores()
+# {...}
+# {...}
+# %i: int = 1
+0005c	push	0x0000000001	# 1;
+0005e	lvar	0x0000000000	# %i: int;
+00060	sto	0x0000000002
+# for(<=(%i: int, NumeroColumnas=12))
+00062	push	0x000000000c	# NumeroColumnas=12;
+00064	lvar	0x0000000000	# %i: int;
+00066	ind	0x0000000004
+00068	le	
+00069	jmpf	0x000000008c
+# {...}
+# [](%cntdr: TipoContadores, %i: int) = 1
+0006b	push	0x0000000001	# 1;
+0006d	lvar	0x0000000000	# []; %i: int;
+0006f	ind	0x0000000004
+00071	lvar	0x0000000004	# %cntdr: TipoContadores;
+00073	idx	0x0000000013
+00075	sto	0x000000000c
+00077	push	0x000000000c	# NumeroColumnas=12;
+00079	lvar	0x0000000000	# %i: int;
+0007b	ind	0x0000000004
+0007d	eq	
+0007e	jmpt	0x000000008c
+# %i: int = succ(%i: int)
+00080	lvar	0x0000000000	# %i: int;
+00082	ind	0x0000000004
+00084	call	0x0080000031	# succ();
+00086	lvar	0x0000000000	# %i: int;
+00088	sto	0x0000000002
+0008a	jmp	0x0000000062
+# nop
+# return %cntdr: TipoContadores
+0008c	lvar	0x0000000004	# %cntdr: TipoContadores;
+0008e	ind	0x0000000030
+00090	ret	0x0000000002
+# nuevopos()
+# {...}
+# {...}
+# %i: int = 1
+00092	push	0x0000000001	# 1;
+00094	lvar	0x00000001b0	# %i: int;
+00096	sto	0x0000000002
+# for(<=(%i: int, NumeroColumnas=12))
+00098	push	0x000000000c	# NumeroColumnas=12;
+0009a	lvar	0x00000001b0	# %i: int;
+0009c	ind	0x0000000004
+0009e	le	
+0009f	jmpf	0x00000000ec
+# {...}
+# {...}
+# %j: int = 1
+000a1	push	0x0000000001	# 1;
+000a3	lvar	0x00000001b4	# %j: int;
+000a5	sto	0x0000000002
+# for(<=(%j: int, AltoColumnas=9))
+000a7	push	0x0000000009	# AltoColumnas=9;
+000a9	lvar	0x00000001b4	# %j: int;
+000ab	ind	0x0000000004
+000ad	le	
+000ae	jmpf	0x00000000d7
+# {...}
+# []([](%pos: TipoPosicion, %i: int), %j: int) = Vacio=Vacio
+000b0	push	0x0000000004	# Vacio=Vacio;
+000b2	lvar	0x00000001b4	# []; %j: int;
+000b4	ind	0x0000000004
+000b6	lvar	0x00000001b0	# []; %i: int;
+000b8	ind	0x0000000004
+000ba	lvar	0x0000000000	# %pos: TipoPosicion;
+000bc	idx	0x0000000011
+000be	idx	0x000000000f
+000c0	sto	0x000000000b
+000c2	push	0x0000000009	# AltoColumnas=9;
+000c4	lvar	0x00000001b4	# %j: int;
+000c6	ind	0x0000000004
+000c8	eq	
+000c9	jmpt	0x00000000d7
+# %j: int = succ(%j: int)
+000cb	lvar	0x00000001b4	# %j: int;
+000cd	ind	0x0000000004
+000cf	call	0x0080000031	# succ();
+000d1	lvar	0x00000001b4	# %j: int;
+000d3	sto	0x0000000002
+000d5	jmp	0x00000000a7
+000d7	push	0x000000000c	# NumeroColumnas=12;
+000d9	lvar	0x00000001b0	# %i: int;
+000db	ind	0x0000000004
+000dd	eq	
+000de	jmpt	0x00000000ec
+# %i: int = succ(%i: int)
+000e0	lvar	0x00000001b0	# %i: int;
+000e2	ind	0x0000000004
+000e4	call	0x0080000031	# succ();
+000e6	lvar	0x00000001b0	# %i: int;
+000e8	sto	0x0000000002
+000ea	jmp	0x0000000098
+# return %pos: TipoPosicion
+000ec	lvar	0x0000000000	# %pos: TipoPosicion;
+000ee	ind	0x00000001b0
+000f0	ret	0x0000000003
+# nuevotablero()
+# {...}
+# .(%tblr: TipoTablero, pos: TipoPosicion) = nuevopos()
+000f2	call	0x0000000003	# nuevopos();
+000f4	lvar	0x0000000000	# .; %tblr: TipoTablero;
+000f6	sto	0x0000000011
+# .(%tblr: TipoTablero, cont: TipoContadores) = nuevoscontadores()
+000f8	call	0x0000000002	# nuevoscontadores();
+000fa	lvar	0x0000000000	# .; %tblr: TipoTablero;
+000fc	fld	0x00000001b0
+000fe	sto	0x0000000013
+# return %tblr: TipoTablero
+00100	lvar	0x0000000000	# %tblr: TipoTablero;
+00102	ind	0x00000001e0
+00104	ret	0x0000000004
+# nuevojuego()
+# {...}
+# .(%juego: TipoJuego, pinicio: TipoPtrJuego) = nil
+00106	data	0x0000000008	# nil;
+00108	0x0
+00109	0x0
+0010a	lvar	0x0000000000	# .; %juego: TipoJuego;
+0010c	sto	0x0000000019
+# .(%juego: TipoJuego, pultimo: TipoPtrJuego) = nil
+0010e	data	0x0000000008	# nil;
+00110	0x0
+00111	0x0
+00112	lvar	0x0000000000	# .; %juego: TipoJuego;
+00114	fld	0x0000000008
+00116	sto	0x0000000019
+# new(%pjuego: TipoPtrJuego)
+00118	lvar	0x0000000010	# %pjuego: TipoPtrJuego;
+0011a	push	0x0000000019
+0011c	call	0x0080000014	# new();
+# .(.(^(%pjuego: TipoPtrJuego), jugada: TipoJugada), jugador: TipoJugador) = Vacio=Vacio
+0011e	push	0x0000000004	# Vacio=Vacio;
+00120	lvar	0x0000000010	# .; .; ^; %pjuego: TipoPtrJuego;
+00122	ind	0x0000000008
+00124	ptr	
+00125	sto	0x000000000b
+# .(.(^(%pjuego: TipoPtrJuego), jugada: TipoJugada), col: TipoQueColumna) = 1
+00127	push	0x0000000001	# 1;
+00129	lvar	0x0000000010	# .; .; ^; %pjuego: TipoPtrJuego;
+0012b	ind	0x0000000008
+0012d	ptr	
+0012e	fld	0x0000000004
+00130	sto	0x000000000d
+# .(^(%pjuego: TipoPtrJuego), tablero: TipoTablero) = nuevotablero()
+00132	call	0x0000000004	# nuevotablero();
+00134	lvar	0x0000000010	# .; ^; %pjuego: TipoPtrJuego;
+00136	ind	0x0000000008
+00138	ptr	
+00139	fld	0x0000000008
+0013b	sto	0x0000000014
+# .(^(%pjuego: TipoPtrJuego), ganador: TipoGanador) = iniciaganador()
+0013d	call	0x0000000001	# iniciaganador();
+0013f	lvar	0x0000000010	# .; ^; %pjuego: TipoPtrJuego;
+00141	ind	0x0000000008
+00143	ptr	
+00144	fld	0x00000001e8
+00146	sto	0x0000000018
+# .(^(%pjuego: TipoPtrJuego), psig: TipoPtrJuego) = nil
+00148	data	0x0000000008	# nil;
+0014a	0x0
+0014b	0x0
+0014c	lvar	0x0000000010	# .; ^; %pjuego: TipoPtrJuego;
+0014e	ind	0x0000000008
+00150	ptr	
+00151	fld	0x00000001f0
+00153	sto	0x0000000019
+# .(%juego: TipoJuego, pinicio: TipoPtrJuego) = %pjuego: TipoPtrJuego
+00155	lvar	0x0000000010	# %pjuego: TipoPtrJuego;
+00157	lvar	0x0000000000	# .; %juego: TipoJuego;
+00159	stom	0x0000000019
+# .(%juego: TipoJuego, pultimo: TipoPtrJuego) = %pjuego: TipoPtrJuego
+0015b	lvar	0x0000000010	# %pjuego: TipoPtrJuego;
+0015d	lvar	0x0000000000	# .; %juego: TipoJuego;
+0015f	fld	0x0000000008
+00161	stom	0x0000000019
+# return %juego: TipoJuego
+00163	lvar	0x0000000000	# %juego: TipoJuego;
+00165	ind	0x0000000010
+00167	ret	0x0000000005
+# limpiarjg()
+# {...}
+# while(!=(.(&jg: TipoJuego, pinicio: TipoPtrJuego), nil))
+00169	data	0x0000000008	# nil;
+0016b	0x0
+0016c	0x0
+0016d	arg	0x0000000000	# .; &jg: TipoJuego;
+0016f	ind	0x0000000008
+00171	ind	0x0000000008
+00173	nea	
+00174	jmpf	0x0000000193
+# {...}
+# %pjug: TipoPtrJuego = .(&jg: TipoJuego, pinicio: TipoPtrJuego)
+00176	arg	0x0000000000	# .; &jg: TipoJuego;
+00178	ind	0x0000000008
+0017a	lvar	0x0000000000	# %pjug: TipoPtrJuego;
+0017c	stom	0x0000000019
+# .(&jg: TipoJuego, pinicio: TipoPtrJuego) = .(^(.(&jg: TipoJuego, pinicio: TipoPtrJuego)), psig: TipoPtrJuego)
+0017e	arg	0x0000000000	# .; ^; .; &jg: TipoJuego;
+00180	ind	0x0000000008
+00182	ind	0x0000000008
+00184	ptr	
+00185	fld	0x00000001f0
+00187	arg	0x0000000000	# .; &jg: TipoJuego;
+00189	ind	0x0000000008
+0018b	stom	0x0000000019
+# dispose(%pjug: TipoPtrJuego)
+0018d	lvar	0x0000000000	# %pjug: TipoPtrJuego;
+0018f	call	0x0080000005	# dispose();
+00191	jmp	0x0000000169
+# return <nil>
+00193	ret	0x0000000006
+# esnumero()
+# {...}
+# return and(<=($c: char, '9'), >=($c: char, '0'))
+00195	push	0x0000000030	# '0';
+00197	arg	0x0000000000	# $c: char;
+00199	ind	0x0000000004
+0019b	ge	
+0019c	push	0x0000000039	# '9';
+0019e	arg	0x0000000000	# $c: char;
+001a0	ind	0x0000000004
+001a2	le	
+001a3	and	
+001a4	ret	0x0000000007
+# esletra()
+# {...}
+# return or(and(>=($c: char, 'a'), <=($c: char, 'z')), and(>=($c: char, 'A'), <=($c: char, 'Z')))
+001a6	push	0x000000005a	# 'Z';
+001a8	arg	0x0000000000	# $c: char;
+001aa	ind	0x0000000004
+001ac	le	
+001ad	push	0x0000000041	# 'A';
+001af	arg	0x0000000000	# $c: char;
+001b1	ind	0x0000000004
+001b3	ge	
+001b4	and	
+001b5	push	0x000000007a	# 'z';
+001b7	arg	0x0000000000	# $c: char;
+001b9	ind	0x0000000004
+001bb	le	
+001bc	push	0x0000000061	# 'a';
+001be	arg	0x0000000000	# $c: char;
+001c0	ind	0x0000000004
+001c2	ge	
+001c3	and	
+001c4	or	
+001c5	ret	0x0000000008
+# leerjugador()
+# {...}
+# fpeek(stdin: file, %c: char)
+001c7	lvar	0x0000000000	# %c: char;
+001c9	daddr	0x00000000c0	# stdin: file;
+001cb	ind	0x0000000004
+001cd	call	0x008000000a	# fpeek();
+# if(esletra(%c: char))
+001cf	lvar	0x0000000000	# %c: char;
+001d1	ind	0x0000000004
+001d3	call	0x0000000008	# esletra();
+001d5	jmpf	0x0000000289
+# {...}
+# fread(stdin: file, %c: char)
+001d7	lvar	0x0000000000	# %c: char;
+001d9	daddr	0x00000000c0	# stdin: file;
+001db	ind	0x0000000004
+001dd	push	0x0000000001
+001df	call	0x008000000b	# fread();
+# {...}
+# %$v1: char = %c: char
+001e1	lvar	0x0000000000	# %c: char;
+001e3	lvar	0x0000000004	# %$v1: char;
+001e5	stom	0x0000000001
+# if(==(%$v1: char, 'p'))
+001e7	push	0x0000000070	# 'p';
+001e9	lvar	0x0000000004	# %$v1: char;
+001eb	ind	0x0000000004
+001ed	eq	
+001ee	jmpf	0x00000001fa
+# {...}
+# &jugador: TipoJugador = Pino=Pino
+001f0	push	0x0000000000	# Pino=Pino;
+001f2	arg	0x0000000008	# &jugador: TipoJugador;
+001f4	ind	0x0000000008
+001f6	sto	0x000000000b
+001f8	jmp	0x0000000287
+# if(==(%$v1: char, 'P'))
+001fa	push	0x0000000050	# 'P';
+001fc	lvar	0x0000000004	# %$v1: char;
+001fe	ind	0x0000000004
+00200	eq	
+00201	jmpf	0x000000020d
+# {...}
+# &jugador: TipoJugador = Pino=Pino
+00203	push	0x0000000000	# Pino=Pino;
+00205	arg	0x0000000008	# &jugador: TipoJugador;
+00207	ind	0x0000000008
+00209	sto	0x000000000b
+0020b	jmp	0x0000000287
+# if(==(%$v1: char, 'm'))
+0020d	push	0x000000006d	# 'm';
+0020f	lvar	0x0000000004	# %$v1: char;
+00211	ind	0x0000000004
+00213	eq	
+00214	jmpf	0x0000000220
+# {...}
+# &jugador: TipoJugador = Marmol=Marmol
+00216	push	0x0000000001	# Marmol=Marmol;
+00218	arg	0x0000000008	# &jugador: TipoJugador;
+0021a	ind	0x0000000008
+0021c	sto	0x000000000b
+0021e	jmp	0x0000000287
+# if(==(%$v1: char, 'M'))
+00220	push	0x000000004d	# 'M';
+00222	lvar	0x0000000004	# %$v1: char;
+00224	ind	0x0000000004
+00226	eq	
+00227	jmpf	0x0000000233
+# {...}
+# &jugador: TipoJugador = Marmol=Marmol
+00229	push	0x0000000001	# Marmol=Marmol;
+0022b	arg	0x0000000008	# &jugador: TipoJugador;
+0022d	ind	0x0000000008
+0022f	sto	0x000000000b
+00231	jmp	0x0000000287
+# if(==(%$v1: char, 'a'))
+00233	push	0x0000000061	# 'a';
+00235	lvar	0x0000000004	# %$v1: char;
+00237	ind	0x0000000004
+00239	eq	
+0023a	jmpf	0x0000000246
+# {...}
+# &jugador: TipoJugador = Acero=Acero
+0023c	push	0x0000000002	# Acero=Acero;
+0023e	arg	0x0000000008	# &jugador: TipoJugador;
+00240	ind	0x0000000008
+00242	sto	0x000000000b
+00244	jmp	0x0000000287
+# if(==(%$v1: char, 'A'))
+00246	push	0x0000000041	# 'A';
+00248	lvar	0x0000000004	# %$v1: char;
+0024a	ind	0x0000000004
+0024c	eq	
+0024d	jmpf	0x0000000259
+# {...}
+# &jugador: TipoJugador = Acero=Acero
+0024f	push	0x0000000002	# Acero=Acero;
+00251	arg	0x0000000008	# &jugador: TipoJugador;
+00253	ind	0x0000000008
+00255	sto	0x000000000b
+00257	jmp	0x0000000287
+# if(==(%$v1: char, 'c'))
+00259	push	0x0000000063	# 'c';
+0025b	lvar	0x0000000004	# %$v1: char;
+0025d	ind	0x0000000004
+0025f	eq	
+00260	jmpf	0x000000026c
+# {...}
+# &jugador: TipoJugador = Cristal=Cristal
+00262	push	0x0000000003	# Cristal=Cristal;
+00264	arg	0x0000000008	# &jugador: TipoJugador;
+00266	ind	0x0000000008
+00268	sto	0x000000000b
+0026a	jmp	0x0000000287
+# if(==(%$v1: char, 'C'))
+0026c	push	0x0000000043	# 'C';
+0026e	lvar	0x0000000004	# %$v1: char;
+00270	ind	0x0000000004
+00272	eq	
+00273	jmpf	0x000000027f
+# {...}
+# &jugador: TipoJugador = Cristal=Cristal
+00275	push	0x0000000003	# Cristal=Cristal;
+00277	arg	0x0000000008	# &jugador: TipoJugador;
+00279	ind	0x0000000008
+0027b	sto	0x000000000b
+0027d	jmp	0x0000000287
+# {...}
+# &error: bool = true
+0027f	push	0x0000000001	# true;
+00281	arg	0x0000000000	# &error: bool;
+00283	ind	0x0000000008
+00285	sto	0x0000000000
+00287	jmp	0x0000000291
+# else
+# &error: bool = true
+00289	push	0x0000000001	# true;
+0028b	arg	0x0000000000	# &error: bool;
+0028d	ind	0x0000000008
+0028f	sto	0x0000000000
+# return <nil>
+00291	ret	0x0000000009
+# leernumero()
+# {...}
+# %j: int = 0
+00293	push	0x0000000000	# 0;
+00295	lvar	0x0000000004	# %j: int;
+00297	sto	0x0000000002
+# &i: int = 0
+00299	push	0x0000000000	# 0;
+0029b	arg	0x0000000000	# &i: int;
+0029d	ind	0x0000000008
+0029f	sto	0x0000000002
+# dowhile(esnumero(%c: char))
+# {...}
+# fpeek(stdin: file, %c: char)
+002a1	lvar	0x0000000000	# %c: char;
+002a3	daddr	0x00000000c0	# stdin: file;
+002a5	ind	0x0000000004
+002a7	call	0x008000000a	# fpeek();
+# if(esnumero(%c: char))
+002a9	lvar	0x0000000000	# %c: char;
+002ab	ind	0x0000000004
+002ad	call	0x0000000007	# esnumero();
+002af	jmpf	0x00000002dc
+# {...}
+# fread(stdin: file, %c: char)
+002b1	lvar	0x0000000000	# %c: char;
+002b3	daddr	0x00000000c0	# stdin: file;
+002b5	ind	0x0000000004
+002b7	push	0x0000000001
+002b9	call	0x008000000b	# fread();
+# %j: int = -(cast(%c: char), 48)
+002bb	push	0x0000000030	# 48;
+002bd	lvar	0x0000000000	# %c: char;
+002bf	ind	0x0000000004
+002c1	cast	0x0000000002
+002c3	sub	
+002c4	lvar	0x0000000004	# %j: int;
+002c6	sto	0x0000000002
+# &i: int = +(*(&i: int, 10), %j: int)
+002c8	lvar	0x0000000004	# %j: int;
+002ca	ind	0x0000000004
+002cc	push	0x000000000a	# 10;
+002ce	arg	0x0000000000	# &i: int;
+002d0	ind	0x0000000008
+002d2	ind	0x0000000004
+002d4	mul	
+002d5	add	
+002d6	arg	0x0000000000	# &i: int;
+002d8	ind	0x0000000008
+002da	sto	0x0000000002
+002dc	lvar	0x0000000000	# %c: char;
+002de	ind	0x0000000004
+002e0	call	0x0000000007	# esnumero();
+002e2	jmpt	0x00000002a1
+# return <nil>
+002e4	ret	0x000000000a
+# leercolumna()
+# {...}
+# %para: bool = false
+002e6	push	0x0000000000	# false;
+002e8	lvar	0x000000000c	# %para: bool;
+002ea	sto	0x0000000000
+# fpeek(stdin: file, %c: char)
+002ec	lvar	0x0000000000	# %c: char;
+002ee	daddr	0x00000000c0	# stdin: file;
+002f0	ind	0x0000000004
+002f2	call	0x008000000a	# fpeek();
+# if(esnumero(%c: char))
+002f4	lvar	0x0000000000	# %c: char;
+002f6	ind	0x0000000004
+002f8	call	0x0000000007	# esnumero();
+002fa	jmpf	0x000000032f
+# {...}
+# leernumero(%i: int)
+002fc	lvar	0x0000000004	# %i: int;
+002fe	call	0x000000000a	# leernumero();
+# %coltemp: int = %i: int
+00300	lvar	0x0000000004	# %i: int;
+00302	lvar	0x0000000008	# %coltemp: int;
+00304	stom	0x0000000002
+# if(and(>=(%coltemp: int, 1), <=(%coltemp: int, NumeroColumnas=12)))
+00306	push	0x000000000c	# NumeroColumnas=12;
+00308	lvar	0x0000000008	# %coltemp: int;
+0030a	ind	0x0000000004
+0030c	le	
+0030d	push	0x0000000001	# 1;
+0030f	lvar	0x0000000008	# %coltemp: int;
+00311	ind	0x0000000004
+00313	ge	
+00314	and	
+00315	jmpf	0x0000000327
+# {...}
+# &col: TipoQueColumna = %coltemp: int
+00317	lvar	0x0000000008	# %coltemp: int;
+00319	arg	0x0000000008	# &col: TipoQueColumna;
+0031b	ind	0x0000000008
+0031d	stom	0x000000000d
+# %para: bool = true
+0031f	push	0x0000000001	# true;
+00321	lvar	0x000000000c	# %para: bool;
+00323	sto	0x0000000000
+00325	jmp	0x000000032f
+# else
+# &error: bool = true
+00327	push	0x0000000001	# true;
+00329	arg	0x0000000000	# &error: bool;
+0032b	ind	0x0000000008
+0032d	sto	0x0000000000
+# return <nil>
+0032f	ret	0x000000000b
+# saltarmorralla()
+# {...}
+# %parar: bool = false
+00331	push	0x0000000000	# false;
+00333	lvar	0x0000000000	# %parar: bool;
+00335	sto	0x0000000000
+# dowhile(not(%parar: bool))
+# {...}
+# fpeek(stdin: file, %c: char)
+00337	lvar	0x0000000004	# %c: char;
+00339	daddr	0x00000000c0	# stdin: file;
+0033b	ind	0x0000000004
+0033d	call	0x008000000a	# fpeek();
+# if(esnumero(%c: char))
+0033f	lvar	0x0000000004	# %c: char;
+00341	ind	0x0000000004
+00343	call	0x0000000007	# esnumero();
+00345	jmpf	0x000000034f
+# {...}
+# %parar: bool = true
+00347	push	0x0000000001	# true;
+00349	lvar	0x0000000000	# %parar: bool;
+0034b	sto	0x0000000000
+0034d	jmp	0x0000000381
+# else
+# {...}
+# %$v2: char = %c: char
+0034f	lvar	0x0000000004	# %c: char;
+00351	lvar	0x0000000008	# %$v2: char;
+00353	stom	0x0000000001
+# if(==(%$v2: char, Eol=Eol))
+00355	push	0x000000000a	# Eol=Eol;
+00357	lvar	0x0000000008	# %$v2: char;
+00359	ind	0x0000000004
+0035b	eq	
+0035c	jmpf	0x0000000366
+# {...}
+# freadeol(stdin: file)
+0035e	daddr	0x00000000c0	# stdin: file;
+00360	ind	0x0000000004
+00362	call	0x008000000c	# freadeol();
+00364	jmp	0x0000000381
+# if(==(%$v2: char, Eof=Eof))
+00366	push	0x00000000ff	# Eof=Eof;
+00368	lvar	0x0000000008	# %$v2: char;
+0036a	ind	0x0000000004
+0036c	eq	
+0036d	jmpf	0x0000000377
+# {...}
+# %parar: bool = true
+0036f	push	0x0000000001	# true;
+00371	lvar	0x0000000000	# %parar: bool;
+00373	sto	0x0000000000
+00375	jmp	0x0000000381
+# {...}
+# fread(stdin: file, %c: char)
+00377	lvar	0x0000000004	# %c: char;
+00379	daddr	0x00000000c0	# stdin: file;
+0037b	ind	0x0000000004
+0037d	push	0x0000000001
+0037f	call	0x008000000b	# fread();
+00381	lvar	0x0000000000	# %parar: bool;
+00383	ind	0x0000000004
+00385	not	
+00386	jmpt	0x0000000337
+# return <nil>
+00388	ret	0x000000000c
+# terminarmorralla()
+# {...}
+# %parar: bool = false
+0038a	push	0x0000000000	# false;
+0038c	lvar	0x0000000000	# %parar: bool;
+0038e	sto	0x0000000000
+# dowhile(not(%parar: bool))
+# {...}
+# fpeek(stdin: file, %c: char)
+00390	lvar	0x0000000004	# %c: char;
+00392	daddr	0x00000000c0	# stdin: file;
+00394	ind	0x0000000004
+00396	call	0x008000000a	# fpeek();
+# {...}
+# %$v3: char = %c: char
+00398	lvar	0x0000000004	# %c: char;
+0039a	lvar	0x0000000008	# %$v3: char;
+0039c	stom	0x0000000001
+# if(==(%$v3: char, Eol=Eol))
+0039e	push	0x000000000a	# Eol=Eol;
+003a0	lvar	0x0000000008	# %$v3: char;
+003a2	ind	0x0000000004
+003a4	eq	
+003a5	jmpf	0x00000003b5
+# {...}
+# freadeol(stdin: file)
+003a7	daddr	0x00000000c0	# stdin: file;
+003a9	ind	0x0000000004
+003ab	call	0x008000000c	# freadeol();
+# %parar: bool = true
+003ad	push	0x0000000001	# true;
+003af	lvar	0x0000000000	# %parar: bool;
+003b1	sto	0x0000000000
+003b3	jmp	0x00000003d0
+# if(==(%$v3: char, Eof=Eof))
+003b5	push	0x00000000ff	# Eof=Eof;
+003b7	lvar	0x0000000008	# %$v3: char;
+003b9	ind	0x0000000004
+003bb	eq	
+003bc	jmpf	0x00000003c6
+# {...}
+# %parar: bool = true
+003be	push	0x0000000001	# true;
+003c0	lvar	0x0000000000	# %parar: bool;
+003c2	sto	0x0000000000
+003c4	jmp	0x00000003d0
+# {...}
+# fread(stdin: file, %c: char)
+003c6	lvar	0x0000000004	# %c: char;
+003c8	daddr	0x00000000c0	# stdin: file;
+003ca	ind	0x0000000004
+003cc	push	0x0000000001
+003ce	call	0x008000000b	# fread();
+003d0	lvar	0x0000000000	# %parar: bool;
+003d2	ind	0x0000000004
+003d4	not	
+003d5	jmpt	0x0000000390
+# return <nil>
+003d7	ret	0x000000000d
+# leerjugada()
+# {...}
+# &error: bool = false
+003d9	push	0x0000000000	# false;
+003db	arg	0x0000000000	# &error: bool;
+003dd	ind	0x0000000008
+003df	sto	0x0000000000
+# .(&jugada: TipoJugada, jugador: TipoJugador) = Vacio=Vacio
+003e1	push	0x0000000004	# Vacio=Vacio;
+003e3	arg	0x0000000008	# .; &jugada: TipoJugada;
+003e5	ind	0x0000000008
+003e7	sto	0x000000000b
+# leerjugador(.(&jugada: TipoJugada, jugador: TipoJugador), &error: bool)
+003e9	arg	0x0000000000	# &error: bool;
+003eb	ind	0x0000000008
+003ed	arg	0x0000000008	# .; &jugada: TipoJugada;
+003ef	ind	0x0000000008
+003f1	call	0x0000000009	# leerjugador();
+# saltarmorralla(&error: bool)
+003f3	arg	0x0000000000	# &error: bool;
+003f5	ind	0x0000000008
+003f7	call	0x000000000c	# saltarmorralla();
+# leercolumna(.(&jugada: TipoJugada, col: TipoQueColumna), &error: bool)
+003f9	arg	0x0000000000	# &error: bool;
+003fb	ind	0x0000000008
+003fd	arg	0x0000000008	# .; &jugada: TipoJugada;
+003ff	ind	0x0000000008
+00401	fld	0x0000000004
+00403	call	0x000000000b	# leercolumna();
+# terminarmorralla(&error: bool)
+00405	arg	0x0000000000	# &error: bool;
+00407	ind	0x0000000008
+00409	call	0x000000000d	# terminarmorralla();
+# return <nil>
+0040b	ret	0x000000000e
+# tablerodejugada()
+# {...}
+# %tblr: TipoTablero = $tablero: TipoTablero
+0040d	arg	0x0000000008	# $tablero: TipoTablero;
+0040f	lvar	0x0000000000	# %tblr: TipoTablero;
+00411	stom	0x0000000014
+# %altr: TipoAltura = [](.($tablero: TipoTablero, cont: TipoContadores), $c: TipoQueColumna)
+00413	arg	0x0000000000	# []; $c: TipoQueColumna;
+00415	ind	0x0000000004
+00417	arg	0x0000000008	# .; $tablero: TipoTablero;
+00419	fld	0x00000001b0
+0041b	idx	0x0000000013
+0041d	lvar	0x00000001e0	# %altr: TipoAltura;
+0041f	stom	0x000000000c
+# if(and(<=(%altr: TipoAltura, AltoColumnas=9), ==([]([](.(%tblr: TipoTablero, pos: TipoPosicion), $c: TipoQueColumna), AltoColumnas=9), Vacio=Vacio)))
+00421	push	0x0000000004	# Vacio=Vacio;
+00423	push	0x0000000009	# []; AltoColumnas=9;
+00425	arg	0x0000000000	# []; $c: TipoQueColumna;
+00427	ind	0x0000000004
+00429	lvar	0x0000000000	# .; %tblr: TipoTablero;
+0042b	idx	0x0000000011
+0042d	idx	0x000000000f
+0042f	ind	0x0000000004
+00431	eq	
+00432	push	0x0000000009	# AltoColumnas=9;
+00434	lvar	0x00000001e0	# %altr: TipoAltura;
+00436	ind	0x0000000004
+00438	le	
+00439	and	
+0043a	jmpf	0x000000044e
+# {...}
+# []([](.(%tblr: TipoTablero, pos: TipoPosicion), $c: TipoQueColumna), %altr: TipoAltura) = $Jugador: TipoJugador
+0043c	arg	0x0000000004	# $Jugador: TipoJugador;
+0043e	lvar	0x00000001e0	# []; %altr: TipoAltura;
+00440	ind	0x0000000004
+00442	arg	0x0000000000	# []; $c: TipoQueColumna;
+00444	ind	0x0000000004
+00446	lvar	0x0000000000	# .; %tblr: TipoTablero;
+00448	idx	0x0000000011
+0044a	idx	0x000000000f
+0044c	stom	0x000000000b
+# return %tblr: TipoTablero
+0044e	lvar	0x0000000000	# %tblr: TipoTablero;
+00450	ind	0x00000001e0
+00452	ret	0x000000000f
+# chequeoigual()
+# {...}
+# %es: bool = true
+00454	push	0x0000000001	# true;
+00456	lvar	0x0000000000	# %es: bool;
+00458	sto	0x0000000000
+# %jgdr: TipoJugador = []($chequeo: TipoChequeo, 1)
+0045a	push	0x0000000001	# []; 1;
+0045c	arg	0x0000000000	# $chequeo: TipoChequeo;
+0045e	idx	0x0000000016
+00460	lvar	0x0000000008	# %jgdr: TipoJugador;
+00462	stom	0x000000000b
+# {...}
+# %i: int = 1
+00464	push	0x0000000001	# 1;
+00466	lvar	0x0000000004	# %i: int;
+00468	sto	0x0000000002
+# for(<=(%i: int, XnR=4))
+0046a	push	0x0000000004	# XnR=4;
+0046c	lvar	0x0000000004	# %i: int;
+0046e	ind	0x0000000004
+00470	le	
+00471	jmpf	0x00000004a0
+# {...}
+# %es: bool = and(==(%jgdr: TipoJugador, []($chequeo: TipoChequeo, %i: int)), %es: bool)
+00473	lvar	0x0000000000	# %es: bool;
+00475	ind	0x0000000004
+00477	lvar	0x0000000004	# []; %i: int;
+00479	ind	0x0000000004
+0047b	arg	0x0000000000	# $chequeo: TipoChequeo;
+0047d	idx	0x0000000016
+0047f	ind	0x0000000004
+00481	lvar	0x0000000008	# %jgdr: TipoJugador;
+00483	ind	0x0000000004
+00485	eq	
+00486	and	
+00487	lvar	0x0000000000	# %es: bool;
+00489	sto	0x0000000000
+0048b	push	0x0000000004	# XnR=4;
+0048d	lvar	0x0000000004	# %i: int;
+0048f	ind	0x0000000004
+00491	eq	
+00492	jmpt	0x00000004a0
+# %i: int = succ(%i: int)
+00494	lvar	0x0000000004	# %i: int;
+00496	ind	0x0000000004
+00498	call	0x0080000031	# succ();
+0049a	lvar	0x0000000004	# %i: int;
+0049c	sto	0x0000000002
+0049e	jmp	0x000000046a
+# return %es: bool
+004a0	lvar	0x0000000000	# %es: bool;
+004a2	ind	0x0000000004
+004a4	ret	0x0000000010
+# cheqcol()
+# {...}
+# %igual: bool = false
+004a6	push	0x0000000000	# false;
+004a8	lvar	0x0000000010	# %igual: bool;
+004aa	sto	0x0000000000
+# {...}
+# %i: int = 1
+004ac	push	0x0000000001	# 1;
+004ae	lvar	0x0000000014	# %i: int;
+004b0	sto	0x0000000002
+# for(<=(%i: int, 5))
+004b2	push	0x0000000005	# 5;
+004b4	lvar	0x0000000014	# %i: int;
+004b6	ind	0x0000000004
+004b8	le	
+004b9	jmpf	0x000000053d
+# {...}
+# {...}
+# %j: int = 0
+004bb	push	0x0000000000	# 0;
+004bd	lvar	0x0000000018	# %j: int;
+004bf	sto	0x0000000002
+# for(<(%j: int, XnR=4))
+004c1	push	0x0000000004	# XnR=4;
+004c3	lvar	0x0000000018	# %j: int;
+004c5	ind	0x0000000004
+004c7	lt	
+004c8	jmpf	0x0000000528
+# {...}
+# [](%chequeo: TipoChequeo, +(%j: int, 1)) = []([](.($tblr: TipoTablero, pos: TipoPosicion), $c: int), +(%i: int, %j: int))
+004ca	lvar	0x0000000018	# []; %j: int;
+004cc	ind	0x0000000004
+004ce	lvar	0x0000000014	# %i: int;
+004d0	ind	0x0000000004
+004d2	add	
+004d3	arg	0x0000000000	# []; $c: int;
+004d5	ind	0x0000000004
+004d7	arg	0x0000000004	# .; $tblr: TipoTablero;
+004d9	idx	0x0000000011
+004db	idx	0x000000000f
+004dd	push	0x0000000001	# []; 1;
+004df	lvar	0x0000000018	# %j: int;
+004e1	ind	0x0000000004
+004e3	add	
+004e4	lvar	0x0000000000	# %chequeo: TipoChequeo;
+004e6	idx	0x0000000016
+004e8	stom	0x000000000b
+# %igual: bool = chequeoigual(%chequeo: TipoChequeo)
+004ea	lvar	0x0000000000	# %chequeo: TipoChequeo;
+004ec	ind	0x0000000010
+004ee	call	0x0000000010	# chequeoigual();
+004f0	lvar	0x0000000010	# %igual: bool;
+004f2	sto	0x0000000000
+# if(and(%igual: bool, !=([](%chequeo: TipoChequeo, 1), Vacio=Vacio)))
+004f4	push	0x0000000004	# Vacio=Vacio;
+004f6	push	0x0000000001	# []; 1;
+004f8	lvar	0x0000000000	# %chequeo: TipoChequeo;
+004fa	idx	0x0000000016
+004fc	ind	0x0000000004
+004fe	ne	
+004ff	lvar	0x0000000010	# %igual: bool;
+00501	ind	0x0000000004
+00503	and	
+00504	jmpf	0x000000051c
+# {...}
+# .(&gndr: TipoGanador, gana: bool) = %igual: bool
+00506	lvar	0x0000000010	# %igual: bool;
+00508	arg	0x00000001e4	# .; &gndr: TipoGanador;
+0050a	ind	0x0000000008
+0050c	fld	0x0000000004
+0050e	stom	0x0000000000
+# .(&gndr: TipoGanador, quien: TipoJugador) = [](%chequeo: TipoChequeo, 1)
+00510	push	0x0000000001	# []; 1;
+00512	lvar	0x0000000000	# %chequeo: TipoChequeo;
+00514	idx	0x0000000016
+00516	arg	0x00000001e4	# .; &gndr: TipoGanador;
+00518	ind	0x0000000008
+0051a	stom	0x000000000b
+# %j: int = succ(%j: int)
+0051c	lvar	0x0000000018	# %j: int;
+0051e	ind	0x0000000004
+00520	call	0x0080000031	# succ();
+00522	lvar	0x0000000018	# %j: int;
+00524	sto	0x0000000002
+00526	jmp	0x00000004c1
+00528	push	0x0000000005	# 5;
+0052a	lvar	0x0000000014	# %i: int;
+0052c	ind	0x0000000004
+0052e	eq	
+0052f	jmpt	0x000000053d
+# %i: int = succ(%i: int)
+00531	lvar	0x0000000014	# %i: int;
+00533	ind	0x0000000004
+00535	call	0x0080000031	# succ();
+00537	lvar	0x0000000014	# %i: int;
+00539	sto	0x0000000002
+0053b	jmp	0x00000004b2
+# return <nil>
+0053d	ret	0x0000000011
+# cheqvert()
+# {...}
+# %gndr: TipoGanador = iniciaganador()
+0053f	call	0x0000000001	# iniciaganador();
+00541	lvar	0x0000000000	# %gndr: TipoGanador;
+00543	sto	0x0000000018
+# {...}
+# %c: TipoQueColumna = 1
+00545	push	0x0000000001	# 1;
+00547	lvar	0x0000000008	# %c: TipoQueColumna;
+00549	sto	0x000000000d
+# for(<=(%c: TipoQueColumna, NumeroColumnas=12))
+0054b	push	0x000000000c	# NumeroColumnas=12;
+0054d	lvar	0x0000000008	# %c: TipoQueColumna;
+0054f	ind	0x0000000004
+00551	le	
+00552	jmpf	0x0000000575
+# {...}
+# cheqcol(%gndr: TipoGanador, $tblr: TipoTablero, %c: TipoQueColumna)
+00554	lvar	0x0000000008	# %c: TipoQueColumna;
+00556	ind	0x0000000004
+00558	arg	0x0000000000	# $tblr: TipoTablero;
+0055a	ind	0x00000001e0
+0055c	lvar	0x0000000000	# %gndr: TipoGanador;
+0055e	call	0x0000000011	# cheqcol();
+00560	push	0x000000000c	# NumeroColumnas=12;
+00562	lvar	0x0000000008	# %c: TipoQueColumna;
+00564	ind	0x0000000004
+00566	eq	
+00567	jmpt	0x0000000575
+# %c: TipoQueColumna = succ(%c: TipoQueColumna)
+00569	lvar	0x0000000008	# %c: TipoQueColumna;
+0056b	ind	0x0000000004
+0056d	call	0x0080000031	# succ();
+0056f	lvar	0x0000000008	# %c: TipoQueColumna;
+00571	sto	0x000000000d
+00573	jmp	0x000000054b
+# return %gndr: TipoGanador
+00575	lvar	0x0000000000	# %gndr: TipoGanador;
+00577	ind	0x0000000008
+00579	ret	0x0000000012
+# cheqfil()
+# {...}
+# %igual: bool = false
+0057b	push	0x0000000000	# false;
+0057d	lvar	0x0000000010	# %igual: bool;
+0057f	sto	0x0000000000
+# {...}
+# %i: int = 1
+00581	push	0x0000000001	# 1;
+00583	lvar	0x0000000014	# %i: int;
+00585	sto	0x0000000002
+# for(<=(%i: int, 8))
+00587	push	0x0000000008	# 8;
+00589	lvar	0x0000000014	# %i: int;
+0058b	ind	0x0000000004
+0058d	le	
+0058e	jmpf	0x0000000612
+# {...}
+# {...}
+# %j: int = 0
+00590	push	0x0000000000	# 0;
+00592	lvar	0x0000000018	# %j: int;
+00594	sto	0x0000000002
+# for(<(%j: int, XnR=4))
+00596	push	0x0000000004	# XnR=4;
+00598	lvar	0x0000000018	# %j: int;
+0059a	ind	0x0000000004
+0059c	lt	
+0059d	jmpf	0x00000005fd
+# {...}
+# [](%chequeo: TipoChequeo, +(%j: int, 1)) = []([](.($tblr: TipoTablero, pos: TipoPosicion), +(%i: int, %j: int)), $f: int)
+0059f	arg	0x0000000000	# []; $f: int;
+005a1	ind	0x0000000004
+005a3	lvar	0x0000000018	# []; %j: int;
+005a5	ind	0x0000000004
+005a7	lvar	0x0000000014	# %i: int;
+005a9	ind	0x0000000004
+005ab	add	
+005ac	arg	0x0000000004	# .; $tblr: TipoTablero;
+005ae	idx	0x0000000011
+005b0	idx	0x000000000f
+005b2	push	0x0000000001	# []; 1;
+005b4	lvar	0x0000000018	# %j: int;
+005b6	ind	0x0000000004
+005b8	add	
+005b9	lvar	0x0000000000	# %chequeo: TipoChequeo;
+005bb	idx	0x0000000016
+005bd	stom	0x000000000b
+# %igual: bool = chequeoigual(%chequeo: TipoChequeo)
+005bf	lvar	0x0000000000	# %chequeo: TipoChequeo;
+005c1	ind	0x0000000010
+005c3	call	0x0000000010	# chequeoigual();
+005c5	lvar	0x0000000010	# %igual: bool;
+005c7	sto	0x0000000000
+# if(and(%igual: bool, !=([](%chequeo: TipoChequeo, 1), Vacio=Vacio)))
+005c9	push	0x0000000004	# Vacio=Vacio;
+005cb	push	0x0000000001	# []; 1;
+005cd	lvar	0x0000000000	# %chequeo: TipoChequeo;
+005cf	idx	0x0000000016
+005d1	ind	0x0000000004
+005d3	ne	
+005d4	lvar	0x0000000010	# %igual: bool;
+005d6	ind	0x0000000004
+005d8	and	
+005d9	jmpf	0x00000005f1
+# {...}
+# .(&gndr: TipoGanador, gana: bool) = %igual: bool
+005db	lvar	0x0000000010	# %igual: bool;
+005dd	arg	0x00000001e4	# .; &gndr: TipoGanador;
+005df	ind	0x0000000008
+005e1	fld	0x0000000004
+005e3	stom	0x0000000000
+# .(&gndr: TipoGanador, quien: TipoJugador) = [](%chequeo: TipoChequeo, 1)
+005e5	push	0x0000000001	# []; 1;
+005e7	lvar	0x0000000000	# %chequeo: TipoChequeo;
+005e9	idx	0x0000000016
+005eb	arg	0x00000001e4	# .; &gndr: TipoGanador;
+005ed	ind	0x0000000008
+005ef	stom	0x000000000b
+# %j: int = succ(%j: int)
+005f1	lvar	0x0000000018	# %j: int;
+005f3	ind	0x0000000004
+005f5	call	0x0080000031	# succ();
+005f7	lvar	0x0000000018	# %j: int;
+005f9	sto	0x0000000002
+005fb	jmp	0x0000000596
+005fd	push	0x0000000008	# 8;
+005ff	lvar	0x0000000014	# %i: int;
+00601	ind	0x0000000004
+00603	eq	
+00604	jmpt	0x0000000612
+# %i: int = succ(%i: int)
+00606	lvar	0x0000000014	# %i: int;
+00608	ind	0x0000000004
+0060a	call	0x0080000031	# succ();
+0060c	lvar	0x0000000014	# %i: int;
+0060e	sto	0x0000000002
+00610	jmp	0x0000000587
+# return <nil>
+00612	ret	0x0000000013
+# cheqhor()
+# {...}
+# %gndr: TipoGanador = iniciaganador()
+00614	call	0x0000000001	# iniciaganador();
+00616	lvar	0x0000000000	# %gndr: TipoGanador;
+00618	sto	0x0000000018
+# {...}
+# %f: TipoAltura = 1
+0061a	push	0x0000000001	# 1;
+0061c	lvar	0x0000000008	# %f: TipoAltura;
+0061e	sto	0x000000000c
+# for(<=(%f: TipoAltura, AltoColumnas=9))
+00620	push	0x0000000009	# AltoColumnas=9;
+00622	lvar	0x0000000008	# %f: TipoAltura;
+00624	ind	0x0000000004
+00626	le	
+00627	jmpf	0x000000064a
+# {...}
+# cheqfil(%gndr: TipoGanador, $tblr: TipoTablero, %f: TipoAltura)
+00629	lvar	0x0000000008	# %f: TipoAltura;
+0062b	ind	0x0000000004
+0062d	arg	0x0000000000	# $tblr: TipoTablero;
+0062f	ind	0x00000001e0
+00631	lvar	0x0000000000	# %gndr: TipoGanador;
+00633	call	0x0000000013	# cheqfil();
+00635	push	0x0000000009	# AltoColumnas=9;
+00637	lvar	0x0000000008	# %f: TipoAltura;
+00639	ind	0x0000000004
+0063b	eq	
+0063c	jmpt	0x000000064a
+# %f: TipoAltura = succ(%f: TipoAltura)
+0063e	lvar	0x0000000008	# %f: TipoAltura;
+00640	ind	0x0000000004
+00642	call	0x0080000031	# succ();
+00644	lvar	0x0000000008	# %f: TipoAltura;
+00646	sto	0x000000000c
+00648	jmp	0x0000000620
+# return %gndr: TipoGanador
+0064a	lvar	0x0000000000	# %gndr: TipoGanador;
+0064c	ind	0x0000000008
+0064e	ret	0x0000000014
+# cheqds()
+# {...}
+# %igual: bool = false
+00650	push	0x0000000000	# false;
+00652	lvar	0x0000000010	# %igual: bool;
+00654	sto	0x0000000000
+# {...}
+# %i: int = 1
+00656	push	0x0000000001	# 1;
+00658	lvar	0x0000000014	# %i: int;
+0065a	sto	0x0000000002
+# for(<=(%i: int, 8))
+0065c	push	0x0000000008	# 8;
+0065e	lvar	0x0000000014	# %i: int;
+00660	ind	0x0000000004
+00662	le	
+00663	jmpf	0x0000000720
+# {...}
+# {...}
+# %j: int = 1
+00665	push	0x0000000001	# 1;
+00667	lvar	0x0000000018	# %j: int;
+00669	sto	0x0000000002
+# for(<=(%j: int, 5))
+0066b	push	0x0000000005	# 5;
+0066d	lvar	0x0000000018	# %j: int;
+0066f	ind	0x0000000004
+00671	le	
+00672	jmpf	0x000000070b
+# {...}
+# {...}
+# %k: int = 0
+00674	push	0x0000000000	# 0;
+00676	lvar	0x000000001c	# %k: int;
+00678	sto	0x0000000002
+# for(<(%k: int, XnR=4))
+0067a	push	0x0000000004	# XnR=4;
+0067c	lvar	0x000000001c	# %k: int;
+0067e	ind	0x0000000004
+00680	lt	
+00681	jmpf	0x00000006f6
+# {...}
+# %c: int = +(%i: int, %k: int)
+00683	lvar	0x000000001c	# %k: int;
+00685	ind	0x0000000004
+00687	lvar	0x0000000014	# %i: int;
+00689	ind	0x0000000004
+0068b	add	
+0068c	lvar	0x0000000020	# %c: int;
+0068e	sto	0x0000000002
+# %f: int = +(%j: int, %k: int)
+00690	lvar	0x000000001c	# %k: int;
+00692	ind	0x0000000004
+00694	lvar	0x0000000018	# %j: int;
+00696	ind	0x0000000004
+00698	add	
+00699	lvar	0x0000000024	# %f: int;
+0069b	sto	0x0000000002
+# [](%chequeo: TipoChequeo, +(%k: int, 1)) = []([](.($tblr: TipoTablero, pos: TipoPosicion), %c: int), %f: int)
+0069d	lvar	0x0000000024	# []; %f: int;
+0069f	ind	0x0000000004
+006a1	lvar	0x0000000020	# []; %c: int;
+006a3	ind	0x0000000004
+006a5	arg	0x0000000000	# .; $tblr: TipoTablero;
+006a7	idx	0x0000000011
+006a9	idx	0x000000000f
+006ab	push	0x0000000001	# []; 1;
+006ad	lvar	0x000000001c	# %k: int;
+006af	ind	0x0000000004
+006b1	add	
+006b2	lvar	0x0000000000	# %chequeo: TipoChequeo;
+006b4	idx	0x0000000016
+006b6	stom	0x000000000b
+# %igual: bool = chequeoigual(%chequeo: TipoChequeo)
+006b8	lvar	0x0000000000	# %chequeo: TipoChequeo;
+006ba	ind	0x0000000010
+006bc	call	0x0000000010	# chequeoigual();
+006be	lvar	0x0000000010	# %igual: bool;
+006c0	sto	0x0000000000
+# if(and(%igual: bool, !=([](%chequeo: TipoChequeo, 1), Vacio=Vacio)))
+006c2	push	0x0000000004	# Vacio=Vacio;
+006c4	push	0x0000000001	# []; 1;
+006c6	lvar	0x0000000000	# %chequeo: TipoChequeo;
+006c8	idx	0x0000000016
+006ca	ind	0x0000000004
+006cc	ne	
+006cd	lvar	0x0000000010	# %igual: bool;
+006cf	ind	0x0000000004
+006d1	and	
+006d2	jmpf	0x00000006ea
+# {...}
+# .(&gndr: TipoGanador, gana: bool) = %igual: bool
+006d4	lvar	0x0000000010	# %igual: bool;
+006d6	arg	0x00000001e0	# .; &gndr: TipoGanador;
+006d8	ind	0x0000000008
+006da	fld	0x0000000004
+006dc	stom	0x0000000000
+# .(&gndr: TipoGanador, quien: TipoJugador) = [](%chequeo: TipoChequeo, 1)
+006de	push	0x0000000001	# []; 1;
+006e0	lvar	0x0000000000	# %chequeo: TipoChequeo;
+006e2	idx	0x0000000016
+006e4	arg	0x00000001e0	# .; &gndr: TipoGanador;
+006e6	ind	0x0000000008
+006e8	stom	0x000000000b
+# %k: int = succ(%k: int)
+006ea	lvar	0x000000001c	# %k: int;
+006ec	ind	0x0000000004
+006ee	call	0x0080000031	# succ();
+006f0	lvar	0x000000001c	# %k: int;
+006f2	sto	0x0000000002
+006f4	jmp	0x000000067a
+006f6	push	0x0000000005	# 5;
+006f8	lvar	0x0000000018	# %j: int;
+006fa	ind	0x0000000004
+006fc	eq	
+006fd	jmpt	0x000000070b
+# %j: int = succ(%j: int)
+006ff	lvar	0x0000000018	# %j: int;
+00701	ind	0x0000000004
+00703	call	0x0080000031	# succ();
+00705	lvar	0x0000000018	# %j: int;
+00707	sto	0x0000000002
+00709	jmp	0x000000066b
+0070b	push	0x0000000008	# 8;
+0070d	lvar	0x0000000014	# %i: int;
+0070f	ind	0x0000000004
+00711	eq	
+00712	jmpt	0x0000000720
+# %i: int = succ(%i: int)
+00714	lvar	0x0000000014	# %i: int;
+00716	ind	0x0000000004
+00718	call	0x0080000031	# succ();
+0071a	lvar	0x0000000014	# %i: int;
+0071c	sto	0x0000000002
+0071e	jmp	0x000000065c
+# return <nil>
+00720	ret	0x0000000015
+# cheqdb()
+# {...}
+# %igual: bool = false
+00722	push	0x0000000000	# false;
+00724	lvar	0x0000000010	# %igual: bool;
+00726	sto	0x0000000000
+# {...}
+# %i: int = XnR=4
+00728	push	0x0000000004	# XnR=4;
+0072a	lvar	0x0000000014	# %i: int;
+0072c	sto	0x0000000002
+# for(<=(%i: int, NumeroColumnas=12))
+0072e	push	0x000000000c	# NumeroColumnas=12;
+00730	lvar	0x0000000014	# %i: int;
+00732	ind	0x0000000004
+00734	le	
+00735	jmpf	0x00000007f2
+# {...}
+# {...}
+# %j: int = XnR=4
+00737	push	0x0000000004	# XnR=4;
+00739	lvar	0x0000000018	# %j: int;
+0073b	sto	0x0000000002
+# for(<=(%j: int, AltoColumnas=9))
+0073d	push	0x0000000009	# AltoColumnas=9;
+0073f	lvar	0x0000000018	# %j: int;
+00741	ind	0x0000000004
+00743	le	
+00744	jmpf	0x00000007dd
+# {...}
+# {...}
+# %k: int = 0
+00746	push	0x0000000000	# 0;
+00748	lvar	0x000000001c	# %k: int;
+0074a	sto	0x0000000002
+# for(<(%k: int, XnR=4))
+0074c	push	0x0000000004	# XnR=4;
+0074e	lvar	0x000000001c	# %k: int;
+00750	ind	0x0000000004
+00752	lt	
+00753	jmpf	0x00000007c8
+# {...}
+# %c: int = -(%i: int, %k: int)
+00755	lvar	0x000000001c	# %k: int;
+00757	ind	0x0000000004
+00759	lvar	0x0000000014	# %i: int;
+0075b	ind	0x0000000004
+0075d	sub	
+0075e	lvar	0x0000000020	# %c: int;
+00760	sto	0x0000000002
+# %f: int = -(%j: int, %k: int)
+00762	lvar	0x000000001c	# %k: int;
+00764	ind	0x0000000004
+00766	lvar	0x0000000018	# %j: int;
+00768	ind	0x0000000004
+0076a	sub	
+0076b	lvar	0x0000000024	# %f: int;
+0076d	sto	0x0000000002
+# [](%chequeo: TipoChequeo, +(%k: int, 1)) = []([](.($tblr: TipoTablero, pos: TipoPosicion), %c: int), %f: int)
+0076f	lvar	0x0000000024	# []; %f: int;
+00771	ind	0x0000000004
+00773	lvar	0x0000000020	# []; %c: int;
+00775	ind	0x0000000004
+00777	arg	0x0000000000	# .; $tblr: TipoTablero;
+00779	idx	0x0000000011
+0077b	idx	0x000000000f
+0077d	push	0x0000000001	# []; 1;
+0077f	lvar	0x000000001c	# %k: int;
+00781	ind	0x0000000004
+00783	add	
+00784	lvar	0x0000000000	# %chequeo: TipoChequeo;
+00786	idx	0x0000000016
+00788	stom	0x000000000b
+# %igual: bool = chequeoigual(%chequeo: TipoChequeo)
+0078a	lvar	0x0000000000	# %chequeo: TipoChequeo;
+0078c	ind	0x0000000010
+0078e	call	0x0000000010	# chequeoigual();
+00790	lvar	0x0000000010	# %igual: bool;
+00792	sto	0x0000000000
+# if(and(%igual: bool, !=([](%chequeo: TipoChequeo, 1), Vacio=Vacio)))
+00794	push	0x0000000004	# Vacio=Vacio;
+00796	push	0x0000000001	# []; 1;
+00798	lvar	0x0000000000	# %chequeo: TipoChequeo;
+0079a	idx	0x0000000016
+0079c	ind	0x0000000004
+0079e	ne	
+0079f	lvar	0x0000000010	# %igual: bool;
+007a1	ind	0x0000000004
+007a3	and	
+007a4	jmpf	0x00000007bc
+# {...}
+# .(&gndr: TipoGanador, gana: bool) = %igual: bool
+007a6	lvar	0x0000000010	# %igual: bool;
+007a8	arg	0x00000001e0	# .; &gndr: TipoGanador;
+007aa	ind	0x0000000008
+007ac	fld	0x0000000004
+007ae	stom	0x0000000000
+# .(&gndr: TipoGanador, quien: TipoJugador) = [](%chequeo: TipoChequeo, 1)
+007b0	push	0x0000000001	# []; 1;
+007b2	lvar	0x0000000000	# %chequeo: TipoChequeo;
+007b4	idx	0x0000000016
+007b6	arg	0x00000001e0	# .; &gndr: TipoGanador;
+007b8	ind	0x0000000008
+007ba	stom	0x000000000b
+# %k: int = succ(%k: int)
+007bc	lvar	0x000000001c	# %k: int;
+007be	ind	0x0000000004
+007c0	call	0x0080000031	# succ();
+007c2	lvar	0x000000001c	# %k: int;
+007c4	sto	0x0000000002
+007c6	jmp	0x000000074c
+007c8	push	0x0000000009	# AltoColumnas=9;
+007ca	lvar	0x0000000018	# %j: int;
+007cc	ind	0x0000000004
+007ce	eq	
+007cf	jmpt	0x00000007dd
+# %j: int = succ(%j: int)
+007d1	lvar	0x0000000018	# %j: int;
+007d3	ind	0x0000000004
+007d5	call	0x0080000031	# succ();
+007d7	lvar	0x0000000018	# %j: int;
+007d9	sto	0x0000000002
+007db	jmp	0x000000073d
+007dd	push	0x000000000c	# NumeroColumnas=12;
+007df	lvar	0x0000000014	# %i: int;
+007e1	ind	0x0000000004
+007e3	eq	
+007e4	jmpt	0x00000007f2
+# %i: int = succ(%i: int)
+007e6	lvar	0x0000000014	# %i: int;
+007e8	ind	0x0000000004
+007ea	call	0x0080000031	# succ();
+007ec	lvar	0x0000000014	# %i: int;
+007ee	sto	0x0000000002
+007f0	jmp	0x000000072e
+# return <nil>
+007f2	ret	0x0000000016
+# cheqdiag()
+# {...}
+# %gndr: TipoGanador = iniciaganador()
+007f4	call	0x0000000001	# iniciaganador();
+007f6	lvar	0x0000000000	# %gndr: TipoGanador;
+007f8	sto	0x0000000018
+# cheqds(%gndr: TipoGanador, $tblr: TipoTablero)
+007fa	arg	0x0000000000	# $tblr: TipoTablero;
+007fc	ind	0x00000001e0
+007fe	lvar	0x0000000000	# %gndr: TipoGanador;
+00800	call	0x0000000015	# cheqds();
+# cheqdb(%gndr: TipoGanador, $tblr: TipoTablero)
+00802	arg	0x0000000000	# $tblr: TipoTablero;
+00804	ind	0x00000001e0
+00806	lvar	0x0000000000	# %gndr: TipoGanador;
+00808	call	0x0000000016	# cheqdb();
+# return %gndr: TipoGanador
+0080a	lvar	0x0000000000	# %gndr: TipoGanador;
+0080c	ind	0x0000000008
+0080e	ret	0x0000000017
+# chequeaganador()
+# {...}
+# %gndr: TipoGanador = iniciaganador()
+00810	call	0x0000000001	# iniciaganador();
+00812	lvar	0x0000000000	# %gndr: TipoGanador;
+00814	sto	0x0000000018
+# %gndr: TipoGanador = cheqhor($tblr: TipoTablero)
+00816	arg	0x0000000000	# $tblr: TipoTablero;
+00818	ind	0x00000001e0
+0081a	call	0x0000000014	# cheqhor();
+0081c	lvar	0x0000000000	# %gndr: TipoGanador;
+0081e	sto	0x0000000018
+# if(==(.(%gndr: TipoGanador, gana: bool), false))
+00820	push	0x0000000000	# false;
+00822	lvar	0x0000000000	# .; %gndr: TipoGanador;
+00824	fld	0x0000000004
+00826	ind	0x0000000004
+00828	eq	
+00829	jmpf	0x000000084a
+# {...}
+# %gndr: TipoGanador = cheqvert($tblr: TipoTablero)
+0082b	arg	0x0000000000	# $tblr: TipoTablero;
+0082d	ind	0x00000001e0
+0082f	call	0x0000000012	# cheqvert();
+00831	lvar	0x0000000000	# %gndr: TipoGanador;
+00833	sto	0x0000000018
+# if(==(.(%gndr: TipoGanador, gana: bool), false))
+00835	push	0x0000000000	# false;
+00837	lvar	0x0000000000	# .; %gndr: TipoGanador;
+00839	fld	0x0000000004
+0083b	ind	0x0000000004
+0083d	eq	
+0083e	jmpf	0x000000084a
+# {...}
+# %gndr: TipoGanador = cheqdiag($tblr: TipoTablero)
+00840	arg	0x0000000000	# $tblr: TipoTablero;
+00842	ind	0x00000001e0
+00844	call	0x0000000017	# cheqdiag();
+00846	lvar	0x0000000000	# %gndr: TipoGanador;
+00848	sto	0x0000000018
+# return %gndr: TipoGanador
+0084a	lvar	0x0000000000	# %gndr: TipoGanador;
+0084c	ind	0x0000000008
+0084e	ret	0x0000000018
+# avanzacontador()
+# {...}
+# if(<([](&cntdr: TipoContadores, $col: TipoQueColumna), AltoColumnas=9))
+00850	push	0x0000000009	# AltoColumnas=9;
+00852	arg	0x0000000000	# []; $col: TipoQueColumna;
+00854	ind	0x0000000004
+00856	arg	0x0000000004	# &cntdr: TipoContadores;
+00858	ind	0x0000000008
+0085a	idx	0x0000000013
+0085c	ind	0x0000000004
+0085e	lt	
+0085f	jmpf	0x000000087c
+# {...}
+# [](&cntdr: TipoContadores, $col: TipoQueColumna) = +([](&cntdr: TipoContadores, $col: TipoQueColumna), 1)
+00861	push	0x0000000001	# 1;
+00863	arg	0x0000000000	# []; $col: TipoQueColumna;
+00865	ind	0x0000000004
+00867	arg	0x0000000004	# &cntdr: TipoContadores;
+00869	ind	0x0000000008
+0086b	idx	0x0000000013
+0086d	ind	0x0000000004
+0086f	add	
+00870	arg	0x0000000000	# []; $col: TipoQueColumna;
+00872	ind	0x0000000004
+00874	arg	0x0000000004	# &cntdr: TipoContadores;
+00876	ind	0x0000000008
+00878	idx	0x0000000013
+0087a	sto	0x000000000c
+# return <nil>
+0087c	ret	0x0000000019
+# turno()
+# {...}
+# leerjugada(%jugada: TipoJugada, &error: bool)
+0087e	arg	0x0000000000	# &error: bool;
+00880	ind	0x0000000008
+00882	lvar	0x0000000000	# %jugada: TipoJugada;
+00884	call	0x000000000e	# leerjugada();
+# if(not(&error: bool))
+00886	arg	0x0000000000	# &error: bool;
+00888	ind	0x0000000008
+0088a	ind	0x0000000004
+0088c	not	
+0088d	jmpf	0x000000090b
+# {...}
+# new(%pjuego: TipoPtrJuego)
+0088f	lvar	0x0000000008	# %pjuego: TipoPtrJuego;
+00891	push	0x0000000019
+00893	call	0x0080000014	# new();
+# .(^(%pjuego: TipoPtrJuego), jugada: TipoJugada) = %jugada: TipoJugada
+00895	lvar	0x0000000000	# %jugada: TipoJugada;
+00897	lvar	0x0000000008	# .; ^; %pjuego: TipoPtrJuego;
+00899	ind	0x0000000008
+0089b	ptr	
+0089c	stom	0x0000000017
+# .(^(%pjuego: TipoPtrJuego), tablero: TipoTablero) = tablerodejugada(.(^(.(&juego: TipoJuego, pultimo: TipoPtrJuego)), tablero: TipoTablero), .(%jugada: TipoJugada, jugador: TipoJugador), .(%jugada: TipoJugada, col: TipoQueColumna))
+0089e	lvar	0x0000000000	# .; %jugada: TipoJugada;
+008a0	fld	0x0000000004
+008a2	ind	0x0000000004
+008a4	lvar	0x0000000000	# .; %jugada: TipoJugada;
+008a6	ind	0x0000000004
+008a8	arg	0x0000000008	# .; ^; .; &juego: TipoJuego;
+008aa	ind	0x0000000008
+008ac	fld	0x0000000008
+008ae	ind	0x0000000008
+008b0	ptr	
+008b1	fld	0x0000000008
+008b3	ind	0x00000001e0
+008b5	call	0x000000000f	# tablerodejugada();
+008b7	lvar	0x0000000008	# .; ^; %pjuego: TipoPtrJuego;
+008b9	ind	0x0000000008
+008bb	ptr	
+008bc	fld	0x0000000008
+008be	sto	0x0000000014
+# avanzacontador(.(.(^(%pjuego: TipoPtrJuego), tablero: TipoTablero), cont: TipoContadores), .(%jugada: TipoJugada, col: TipoQueColumna))
+008c0	lvar	0x0000000000	# .; %jugada: TipoJugada;
+008c2	fld	0x0000000004
+008c4	ind	0x0000000004
+008c6	lvar	0x0000000008	# .; .; ^; %pjuego: TipoPtrJuego;
+008c8	ind	0x0000000008
+008ca	ptr	
+008cb	fld	0x0000000008
+008cd	fld	0x00000001b0
+008cf	call	0x0000000019	# avanzacontador();
+# .(^(%pjuego: TipoPtrJuego), ganador: TipoGanador) = chequeaganador(.(^(%pjuego: TipoPtrJuego), tablero: TipoTablero))
+008d1	lvar	0x0000000008	# .; ^; %pjuego: TipoPtrJuego;
+008d3	ind	0x0000000008
+008d5	ptr	
+008d6	fld	0x0000000008
+008d8	ind	0x00000001e0
+008da	call	0x0000000018	# chequeaganador();
+008dc	lvar	0x0000000008	# .; ^; %pjuego: TipoPtrJuego;
+008de	ind	0x0000000008
+008e0	ptr	
+008e1	fld	0x00000001e8
+008e3	sto	0x0000000018
+# .(^(%pjuego: TipoPtrJuego), psig: TipoPtrJuego) = nil
+008e5	data	0x0000000008	# nil;
+008e7	0x0
+008e8	0x0
+008e9	lvar	0x0000000008	# .; ^; %pjuego: TipoPtrJuego;
+008eb	ind	0x0000000008
+008ed	ptr	
+008ee	fld	0x00000001f0
+008f0	sto	0x0000000019
+# .(^(.(&juego: TipoJuego, pultimo: TipoPtrJuego)), psig: TipoPtrJuego) = %pjuego: TipoPtrJuego
+008f2	lvar	0x0000000008	# %pjuego: TipoPtrJuego;
+008f4	arg	0x0000000008	# .; ^; .; &juego: TipoJuego;
+008f6	ind	0x0000000008
+008f8	fld	0x0000000008
+008fa	ind	0x0000000008
+008fc	ptr	
+008fd	fld	0x00000001f0
+008ff	stom	0x0000000019
+# .(&juego: TipoJuego, pultimo: TipoPtrJuego) = %pjuego: TipoPtrJuego
+00901	lvar	0x0000000008	# %pjuego: TipoPtrJuego;
+00903	arg	0x0000000008	# .; &juego: TipoJuego;
+00905	ind	0x0000000008
+00907	fld	0x0000000008
+00909	stom	0x0000000019
+# return <nil>
+0090b	ret	0x000000001a
+# imprimetablero()
+# {...}
+# {...}
+# %i: TipoAltura = AltoColumnas=9
+0090d	push	0x0000000009	# AltoColumnas=9;
+0090f	lvar	0x0000000000	# %i: TipoAltura;
+00911	sto	0x000000000c
+# for(>=(%i: TipoAltura, 1))
+00913	push	0x0000000001	# 1;
+00915	lvar	0x0000000000	# %i: TipoAltura;
+00917	ind	0x0000000004
+00919	ge	
+0091a	jmpf	0x00000009c4
+# {...}
+# fwrite(stdout: file, '*')
+0091c	push	0x000000002a	# '*';
+0091e	daddr	0x00000000c4	# stdout: file;
+00920	ind	0x0000000004
+00922	push	0x0000000001
+00924	call	0x008000000f	# fwrite();
+# {...}
+# %j: TipoQueColumna = 1
+00926	push	0x0000000001	# 1;
+00928	lvar	0x0000000004	# %j: TipoQueColumna;
+0092a	sto	0x000000000d
+# for(<=(%j: TipoQueColumna, NumeroColumnas=12))
+0092c	push	0x000000000c	# NumeroColumnas=12;
+0092e	lvar	0x0000000004	# %j: TipoQueColumna;
+00930	ind	0x0000000004
+00932	le	
+00933	jmpf	0x00000009a5
+# {...}
+# %gndr: TipoGanador = chequeaganador($tablero: TipoTablero)
+00935	arg	0x0000000000	# $tablero: TipoTablero;
+00937	ind	0x00000001e0
+00939	call	0x0000000018	# chequeaganador();
+0093b	lvar	0x0000000008	# %gndr: TipoGanador;
+0093d	sto	0x0000000018
+# %jgdr: TipoJugador = []([](.($tablero: TipoTablero, pos: TipoPosicion), %j: TipoQueColumna), %i: TipoAltura)
+0093f	lvar	0x0000000000	# []; %i: TipoAltura;
+00941	ind	0x0000000004
+00943	lvar	0x0000000004	# []; %j: TipoQueColumna;
+00945	ind	0x0000000004
+00947	arg	0x0000000000	# .; $tablero: TipoTablero;
+00949	idx	0x0000000011
+0094b	idx	0x000000000f
+0094d	lvar	0x0000000014	# %jgdr: TipoJugador;
+0094f	stom	0x000000000b
+# if(and(==(.(%gndr: TipoGanador, quien: TipoJugador), %jgdr: TipoJugador), !=(.(%gndr: TipoGanador, quien: TipoJugador), Vacio=Vacio)))
+00951	push	0x0000000004	# Vacio=Vacio;
+00953	lvar	0x0000000008	# .; %gndr: TipoGanador;
+00955	ind	0x0000000004
+00957	ne	
+00958	lvar	0x0000000014	# %jgdr: TipoJugador;
+0095a	ind	0x0000000004
+0095c	lvar	0x0000000008	# .; %gndr: TipoGanador;
+0095e	ind	0x0000000004
+00960	eq	
+00961	and	
+00962	jmpf	0x000000097a
+# {...}
+# %c: char = cast(-(+(cast(simb(%jgdr: TipoJugador)), 65), 97))
+00964	push	0x0000000061	# 97;
+00966	push	0x0000000041	# 65;
+00968	lvar	0x0000000014	# %jgdr: TipoJugador;
+0096a	ind	0x0000000004
+0096c	call	0x0000000000	# simb();
+0096e	cast	0x0000000002
+00970	add	
+00971	sub	
+00972	cast	0x0000000001
+00974	lvar	0x0000000010	# %c: char;
+00976	sto	0x0000000001
+00978	jmp	0x0000000984
+# else
+# %c: char = simb(%jgdr: TipoJugador)
+0097a	lvar	0x0000000014	# %jgdr: TipoJugador;
+0097c	ind	0x0000000004
+0097e	call	0x0000000000	# simb();
+00980	lvar	0x0000000010	# %c: char;
+00982	sto	0x0000000001
+# nop
+# fwrite(stdout: file, %c: char)
+00984	lvar	0x0000000010	# %c: char;
+00986	ind	0x0000000004
+00988	daddr	0x00000000c4	# stdout: file;
+0098a	ind	0x0000000004
+0098c	push	0x0000000001
+0098e	call	0x008000000f	# fwrite();
+00990	push	0x000000000c	# NumeroColumnas=12;
+00992	lvar	0x0000000004	# %j: TipoQueColumna;
+00994	ind	0x0000000004
+00996	eq	
+00997	jmpt	0x00000009a5
+# %j: TipoQueColumna = succ(%j: TipoQueColumna)
+00999	lvar	0x0000000004	# %j: TipoQueColumna;
+0099b	ind	0x0000000004
+0099d	call	0x0080000031	# succ();
+0099f	lvar	0x0000000004	# %j: TipoQueColumna;
+009a1	sto	0x000000000d
+009a3	jmp	0x000000092c
+# fwriteln(stdout: file, '*')
+009a5	push	0x000000002a	# '*';
+009a7	daddr	0x00000000c4	# stdout: file;
+009a9	ind	0x0000000004
+009ab	push	0x0000000001
+009ad	call	0x0080000010	# fwriteln();
+009af	push	0x0000000001	# 1;
+009b1	lvar	0x0000000000	# %i: TipoAltura;
+009b3	ind	0x0000000004
+009b5	eq	
+009b6	jmpt	0x00000009c4
+# %i: TipoAltura = pred(%i: TipoAltura)
+009b8	lvar	0x0000000000	# %i: TipoAltura;
+009ba	ind	0x0000000004
+009bc	call	0x0080000017	# pred();
+009be	lvar	0x0000000000	# %i: TipoAltura;
+009c0	sto	0x000000000c
+009c2	jmp	0x0000000913
+# return <nil>
+009c4	ret	0x000000001b
+# escribejuego()
+# {...}
+# %gndr: TipoGanador = chequeaganador(.(^(.($juego: TipoJuego, pultimo: TipoPtrJuego)), tablero: TipoTablero))
+009c6	arg	0x0000000000	# .; ^; .; $juego: TipoJuego;
+009c8	fld	0x0000000008
+009ca	ind	0x0000000008
+009cc	ptr	
+009cd	fld	0x0000000008
+009cf	ind	0x00000001e0
+009d1	call	0x0000000018	# chequeaganador();
+009d3	lvar	0x0000000000	# %gndr: TipoGanador;
+009d5	sto	0x0000000018
+# %pjuego: TipoPtrJuego = .($juego: TipoJuego, pinicio: TipoPtrJuego)
+009d7	arg	0x0000000000	# .; $juego: TipoJuego;
+009d9	lvar	0x0000000008	# %pjuego: TipoPtrJuego;
+009db	stom	0x0000000019
+# %pjuego: TipoPtrJuego = .(^(%pjuego: TipoPtrJuego), psig: TipoPtrJuego)
+009dd	lvar	0x0000000008	# .; ^; %pjuego: TipoPtrJuego;
+009df	ind	0x0000000008
+009e1	ptr	
+009e2	fld	0x00000001f0
+009e4	lvar	0x0000000008	# %pjuego: TipoPtrJuego;
+009e6	stom	0x0000000019
+# while(!=(%pjuego: TipoPtrJuego, nil))
+009e8	data	0x0000000008	# nil;
+009ea	0x0
+009eb	0x0
+009ec	lvar	0x0000000008	# %pjuego: TipoPtrJuego;
+009ee	ind	0x0000000008
+009f0	nea	
+009f1	jmpf	0x0000000a2e
+# {...}
+# if(==(.(%gndr: TipoGanador, quien: TipoJugador), .(.(^(%pjuego: TipoPtrJuego), jugada: TipoJugada), jugador: TipoJugador)))
+009f3	lvar	0x0000000008	# .; .; ^; %pjuego: TipoPtrJuego;
+009f5	ind	0x0000000008
+009f7	ptr	
+009f8	ind	0x0000000004
+009fa	lvar	0x0000000000	# .; %gndr: TipoGanador;
+009fc	ind	0x0000000004
+009fe	eq	
+009ff	jmpf	0x0000000a21
+# {...}
+# fwriteln(stdout: file, .(.(^(%pjuego: TipoPtrJuego), jugada: TipoJugada), jugador: TipoJugador))
+00a01	lvar	0x0000000008	# .; .; ^; %pjuego: TipoPtrJuego;
+00a03	ind	0x0000000008
+00a05	ptr	
+00a06	ind	0x0000000004
+00a08	daddr	0x00000000c4	# stdout: file;
+00a0a	ind	0x0000000004
+00a0c	push	0x000000000b
+00a0e	call	0x0080000010	# fwriteln();
+# fwriteln(stdout: file, .(.(^(%pjuego: TipoPtrJuego), jugada: TipoJugada), col: TipoQueColumna))
+00a10	lvar	0x0000000008	# .; .; ^; %pjuego: TipoPtrJuego;
+00a12	ind	0x0000000008
+00a14	ptr	
+00a15	fld	0x0000000004
+00a17	ind	0x0000000004
+00a19	daddr	0x00000000c4	# stdout: file;
+00a1b	ind	0x0000000004
+00a1d	push	0x000000000d
+00a1f	call	0x0080000010	# fwriteln();
+# %pjuego: TipoPtrJuego = .(^(%pjuego: TipoPtrJuego), psig: TipoPtrJuego)
+00a21	lvar	0x0000000008	# .; ^; %pjuego: TipoPtrJuego;
+00a23	ind	0x0000000008
+00a25	ptr	
+00a26	fld	0x00000001f0
+00a28	lvar	0x0000000008	# %pjuego: TipoPtrJuego;
+00a2a	stom	0x0000000019
+00a2c	jmp	0x00000009e8
+# return <nil>
+00a2e	ret	0x000000001c
+# tablas()
+# {...}
+# %es: bool = true
+00a30	push	0x0000000001	# true;
+00a32	lvar	0x0000000000	# %es: bool;
+00a34	sto	0x0000000000
+# {...}
+# %i: int = 1
+00a36	push	0x0000000001	# 1;
+00a38	lvar	0x0000000008	# %i: int;
+00a3a	sto	0x0000000002
+# for(<=(%i: int, NumeroColumnas=12))
+00a3c	push	0x000000000c	# NumeroColumnas=12;
+00a3e	lvar	0x0000000008	# %i: int;
+00a40	ind	0x0000000004
+00a42	le	
+00a43	jmpf	0x0000000a99
+# {...}
+# {...}
+# %j: int = 1
+00a45	push	0x0000000001	# 1;
+00a47	lvar	0x0000000004	# %j: int;
+00a49	sto	0x0000000002
+# for(<=(%j: int, AltoColumnas=9))
+00a4b	push	0x0000000009	# AltoColumnas=9;
+00a4d	lvar	0x0000000004	# %j: int;
+00a4f	ind	0x0000000004
+00a51	le	
+00a52	jmpf	0x0000000a84
+# {...}
+# if(==([]([](.($tablero: TipoTablero, pos: TipoPosicion), %i: int), %j: int), Vacio=Vacio))
+00a54	push	0x0000000004	# Vacio=Vacio;
+00a56	lvar	0x0000000004	# []; %j: int;
+00a58	ind	0x0000000004
+00a5a	lvar	0x0000000008	# []; %i: int;
+00a5c	ind	0x0000000004
+00a5e	arg	0x0000000000	# .; $tablero: TipoTablero;
+00a60	idx	0x0000000011
+00a62	idx	0x000000000f
+00a64	ind	0x0000000004
+00a66	eq	
+00a67	jmpf	0x0000000a6f
+# {...}
+# %es: bool = false
+00a69	push	0x0000000000	# false;
+00a6b	lvar	0x0000000000	# %es: bool;
+00a6d	sto	0x0000000000
+00a6f	push	0x0000000009	# AltoColumnas=9;
+00a71	lvar	0x0000000004	# %j: int;
+00a73	ind	0x0000000004
+00a75	eq	
+00a76	jmpt	0x0000000a84
+# %j: int = succ(%j: int)
+00a78	lvar	0x0000000004	# %j: int;
+00a7a	ind	0x0000000004
+00a7c	call	0x0080000031	# succ();
+00a7e	lvar	0x0000000004	# %j: int;
+00a80	sto	0x0000000002
+00a82	jmp	0x0000000a4b
+00a84	push	0x000000000c	# NumeroColumnas=12;
+00a86	lvar	0x0000000008	# %i: int;
+00a88	ind	0x0000000004
+00a8a	eq	
+00a8b	jmpt	0x0000000a99
+# %i: int = succ(%i: int)
+00a8d	lvar	0x0000000008	# %i: int;
+00a8f	ind	0x0000000004
+00a91	call	0x0080000031	# succ();
+00a93	lvar	0x0000000008	# %i: int;
+00a95	sto	0x0000000002
+00a97	jmp	0x0000000a3c
+# return %es: bool
+00a99	lvar	0x0000000000	# %es: bool;
+00a9b	ind	0x0000000004
+00a9d	ret	0x000000001d
+# main()
+# {...}
+# %juego: TipoJuego = nuevojuego()
+00a9f	call	0x0000000005	# nuevojuego();
+00aa1	lvar	0x0000000000	# %juego: TipoJuego;
+00aa3	sto	0x000000001b
+# %para: bool = false
+00aa5	push	0x0000000000	# false;
+00aa7	lvar	0x0000000010	# %para: bool;
+00aa9	sto	0x0000000000
+# %error: bool = false
+00aab	push	0x0000000000	# false;
+00aad	lvar	0x0000000014	# %error: bool;
+00aaf	sto	0x0000000000
+# while(and(not(%para: bool), not(%error: bool)))
+00ab1	lvar	0x0000000014	# %error: bool;
+00ab3	ind	0x0000000004
+00ab5	not	
+00ab6	lvar	0x0000000010	# %para: bool;
+00ab8	ind	0x0000000004
+00aba	not	
+00abb	and	
+00abc	jmpf	0x0000000b27
+# {...}
+# turno(%juego: TipoJuego, %error: bool)
+00abe	lvar	0x0000000014	# %error: bool;
+00ac0	lvar	0x0000000000	# %juego: TipoJuego;
+00ac2	call	0x000000001a	# turno();
+# if(%error: bool)
+00ac4	lvar	0x0000000014	# %error: bool;
+00ac6	ind	0x0000000004
+00ac8	jmpf	0x0000000ade
+# {...}
+# fwriteln(stdout: file, $s0="Error fatal")
+00aca	daddr	0x000000007c	# $s0="Error fatal";
+00acc	ind	0x000000002c
+00ace	daddr	0x00000000c4	# stdout: file;
+00ad0	ind	0x0000000004
+00ad2	push	0x000000001c
+00ad4	call	0x0080000010	# fwriteln();
+# %para: bool = true
+00ad6	push	0x0000000001	# true;
+00ad8	lvar	0x0000000010	# %para: bool;
+00ada	sto	0x0000000000
+00adc	jmp	0x0000000aeb
+# else
+# imprimetablero(.(^(.(%juego: TipoJuego, pultimo: TipoPtrJuego)), tablero: TipoTablero))
+00ade	lvar	0x0000000000	# .; ^; .; %juego: TipoJuego;
+00ae0	fld	0x0000000008
+00ae2	ind	0x0000000008
+00ae4	ptr	
+00ae5	fld	0x0000000008
+00ae7	ind	0x00000001e0
+00ae9	call	0x000000001b	# imprimetablero();
+# %ganador: TipoGanador = chequeaganador(.(^(.(%juego: TipoJuego, pultimo: TipoPtrJuego)), tablero: TipoTablero))
+00aeb	lvar	0x0000000000	# .; ^; .; %juego: TipoJuego;
+00aed	fld	0x0000000008
+00aef	ind	0x0000000008
+00af1	ptr	
+00af2	fld	0x0000000008
+00af4	ind	0x00000001e0
+00af6	call	0x0000000018	# chequeaganador();
+00af8	lvar	0x0000000018	# %ganador: TipoGanador;
+00afa	sto	0x0000000018
+# if(tablas(.(^(.(%juego: TipoJuego, pultimo: TipoPtrJuego)), tablero: TipoTablero)))
+00afc	lvar	0x0000000000	# .; ^; .; %juego: TipoJuego;
+00afe	fld	0x0000000008
+00b00	ind	0x0000000008
+00b02	ptr	
+00b03	fld	0x0000000008
+00b05	ind	0x00000001e0
+00b07	call	0x000000001d	# tablas();
+00b09	jmpf	0x0000000b1d
+# {...}
+# %para: bool = true
+00b0b	push	0x0000000001	# true;
+00b0d	lvar	0x0000000010	# %para: bool;
+00b0f	sto	0x0000000000
+# fwriteln(stdout: file, $s1="Tablas")
+00b11	daddr	0x00000000a8	# $s1="Tablas";
+00b13	ind	0x0000000018
+00b15	daddr	0x00000000c4	# stdout: file;
+00b17	ind	0x0000000004
+00b19	push	0x000000001d
+00b1b	call	0x0080000010	# fwriteln();
+# %para: bool = .(%ganador: TipoGanador, gana: bool)
+00b1d	lvar	0x0000000018	# .; %ganador: TipoGanador;
+00b1f	fld	0x0000000004
+00b21	lvar	0x0000000010	# %para: bool;
+00b23	stom	0x0000000000
+00b25	jmp	0x0000000ab1
+# escribejuego(%juego: TipoJuego)
+00b27	lvar	0x0000000000	# %juego: TipoJuego;
+00b29	ind	0x0000000010
+00b2b	call	0x000000001c	# escribejuego();
+# limpiarjg(%juego: TipoJuego)
+00b2d	lvar	0x0000000000	# %juego: TipoJuego;
+00b2f	call	0x0000000006	# limpiarjg();
+# return <nil>
+00b31	ret	0x000000001e
+pcs 268
+00000	'CuatroEnRaya.p'	83
+00000	'CuatroEnRaya.p'	95
+00006	'CuatroEnRaya.p'	85
+00015	'CuatroEnRaya.p'	87
+00024	'CuatroEnRaya.p'	89
+00033	'CuatroEnRaya.p'	91
+00042	'CuatroEnRaya.p'	93
+00046	'CuatroEnRaya.p'	656
+00048	'CuatroEnRaya.p'	103
+0004e	'CuatroEnRaya.p'	104
+00056	'CuatroEnRaya.p'	105
+0005c	'CuatroEnRaya.p'	115
+0005c	'CuatroEnRaya.p'	117
+0006b	'CuatroEnRaya.p'	115
+00080	'CuatroEnRaya.p'	117
+0008c	'CuatroEnRaya.p'	119
+00092	'CuatroEnRaya.p'	133
+00092	'CuatroEnRaya.p'	135
+000a1	'CuatroEnRaya.p'	133
+000a1	'CuatroEnRaya.p'	134
+000b0	'CuatroEnRaya.p'	133
+000cb	'CuatroEnRaya.p'	134
+000e0	'CuatroEnRaya.p'	135
+000ec	'CuatroEnRaya.p'	137
+000f2	'CuatroEnRaya.p'	144
+000f8	'CuatroEnRaya.p'	145
+00100	'CuatroEnRaya.p'	146
+00106	'CuatroEnRaya.p'	155
+0010e	'CuatroEnRaya.p'	156
+00118	'CuatroEnRaya.p'	158
+0011e	'CuatroEnRaya.p'	159
+00127	'CuatroEnRaya.p'	160
+00132	'CuatroEnRaya.p'	161
+0013d	'CuatroEnRaya.p'	162
+00148	'CuatroEnRaya.p'	163
+00155	'CuatroEnRaya.p'	165
+0015b	'CuatroEnRaya.p'	166
+00163	'CuatroEnRaya.p'	168
+00169	'CuatroEnRaya.p'	175
+00176	'CuatroEnRaya.p'	177
+0017e	'CuatroEnRaya.p'	178
+0018d	'CuatroEnRaya.p'	179
+00193	'CuatroEnRaya.p'	656
+00195	'CuatroEnRaya.p'	185
+001a6	'CuatroEnRaya.p'	190
+001c7	'CuatroEnRaya.p'	197
+001cf	'CuatroEnRaya.p'	198
+001d7	'CuatroEnRaya.p'	200
+001e1	'CuatroEnRaya.p'	201
+001e1	'CuatroEnRaya.p'	220
+001e7	'CuatroEnRaya.p'	203
+001fa	'CuatroEnRaya.p'	205
+0020d	'CuatroEnRaya.p'	207
+00220	'CuatroEnRaya.p'	209
+00233	'CuatroEnRaya.p'	211
+00246	'CuatroEnRaya.p'	213
+00259	'CuatroEnRaya.p'	215
+0026c	'CuatroEnRaya.p'	217
+0027f	'CuatroEnRaya.p'	219
+00289	'CuatroEnRaya.p'	222
+00291	'CuatroEnRaya.p'	656
+00293	'CuatroEnRaya.p'	229
+00299	'CuatroEnRaya.p'	230
+002a1	'CuatroEnRaya.p'	232
+002a9	'CuatroEnRaya.p'	233
+002b1	'CuatroEnRaya.p'	235
+002bb	'CuatroEnRaya.p'	236
+002c8	'CuatroEnRaya.p'	237
+002e4	'CuatroEnRaya.p'	656
+002e6	'CuatroEnRaya.p'	252
+002ec	'CuatroEnRaya.p'	253
+002f4	'CuatroEnRaya.p'	254
+002fc	'CuatroEnRaya.p'	256
+00300	'CuatroEnRaya.p'	257
+00306	'CuatroEnRaya.p'	258
+00317	'CuatroEnRaya.p'	260
+0031f	'CuatroEnRaya.p'	261
+00327	'CuatroEnRaya.p'	263
+0032f	'CuatroEnRaya.p'	656
+00331	'CuatroEnRaya.p'	272
+00337	'CuatroEnRaya.p'	274
+0033f	'CuatroEnRaya.p'	275
+00347	'CuatroEnRaya.p'	277
+0034f	'CuatroEnRaya.p'	285
+0034f	'CuatroEnRaya.p'	286
+00355	'CuatroEnRaya.p'	281
+00366	'CuatroEnRaya.p'	283
+00377	'CuatroEnRaya.p'	285
+00388	'CuatroEnRaya.p'	656
+0038a	'CuatroEnRaya.p'	295
+00390	'CuatroEnRaya.p'	297
+00398	'CuatroEnRaya.p'	305
+00398	'CuatroEnRaya.p'	306
+0039e	'CuatroEnRaya.p'	300
+003ad	'CuatroEnRaya.p'	301
+003b5	'CuatroEnRaya.p'	303
+003c6	'CuatroEnRaya.p'	305
+003d7	'CuatroEnRaya.p'	656
+003d9	'CuatroEnRaya.p'	314
+003e1	'CuatroEnRaya.p'	315
+003e9	'CuatroEnRaya.p'	317
+003f3	'CuatroEnRaya.p'	319
+003f9	'CuatroEnRaya.p'	320
+00405	'CuatroEnRaya.p'	322
+0040b	'CuatroEnRaya.p'	656
+0040d	'CuatroEnRaya.p'	335
+00413	'CuatroEnRaya.p'	336
+00421	'CuatroEnRaya.p'	337
+0043c	'CuatroEnRaya.p'	339
+0044e	'CuatroEnRaya.p'	341
+00454	'CuatroEnRaya.p'	351
+0045a	'CuatroEnRaya.p'	352
+00464	'CuatroEnRaya.p'	355
+00464	'CuatroEnRaya.p'	357
+00473	'CuatroEnRaya.p'	355
+00494	'CuatroEnRaya.p'	357
+004a0	'CuatroEnRaya.p'	358
+004a6	'CuatroEnRaya.p'	368
+004ac	'CuatroEnRaya.p'	373
+004ac	'CuatroEnRaya.p'	381
+004bb	'CuatroEnRaya.p'	373
+004bb	'CuatroEnRaya.p'	380
+004ca	'CuatroEnRaya.p'	373
+004ea	'CuatroEnRaya.p'	374
+004f4	'CuatroEnRaya.p'	375
+00506	'CuatroEnRaya.p'	377
+00510	'CuatroEnRaya.p'	378
+0051c	'CuatroEnRaya.p'	380
+00531	'CuatroEnRaya.p'	381
+0053d	'CuatroEnRaya.p'	656
+0053f	'CuatroEnRaya.p'	388
+00545	'CuatroEnRaya.p'	391
+00545	'CuatroEnRaya.p'	392
+00554	'CuatroEnRaya.p'	391
+00569	'CuatroEnRaya.p'	392
+00575	'CuatroEnRaya.p'	393
+0057b	'CuatroEnRaya.p'	402
+00581	'CuatroEnRaya.p'	407
+00581	'CuatroEnRaya.p'	415
+00590	'CuatroEnRaya.p'	407
+00590	'CuatroEnRaya.p'	414
+0059f	'CuatroEnRaya.p'	407
+005bf	'CuatroEnRaya.p'	408
+005c9	'CuatroEnRaya.p'	409
+005db	'CuatroEnRaya.p'	411
+005e5	'CuatroEnRaya.p'	412
+005f1	'CuatroEnRaya.p'	414
+00606	'CuatroEnRaya.p'	415
+00612	'CuatroEnRaya.p'	656
+00614	'CuatroEnRaya.p'	422
+0061a	'CuatroEnRaya.p'	425
+0061a	'CuatroEnRaya.p'	426
+00629	'CuatroEnRaya.p'	425
+0063e	'CuatroEnRaya.p'	426
+0064a	'CuatroEnRaya.p'	427
+00650	'CuatroEnRaya.p'	439
+00656	'CuatroEnRaya.p'	446
+00656	'CuatroEnRaya.p'	457
+00665	'CuatroEnRaya.p'	447
+00665	'CuatroEnRaya.p'	456
+00674	'CuatroEnRaya.p'	448
+00674	'CuatroEnRaya.p'	455
+00683	'CuatroEnRaya.p'	446
+00690	'CuatroEnRaya.p'	447
+0069d	'CuatroEnRaya.p'	448
+006b8	'CuatroEnRaya.p'	449
+006c2	'CuatroEnRaya.p'	450
+006d4	'CuatroEnRaya.p'	452
+006de	'CuatroEnRaya.p'	453
+006ea	'CuatroEnRaya.p'	455
+006ff	'CuatroEnRaya.p'	456
+00714	'CuatroEnRaya.p'	457
+00720	'CuatroEnRaya.p'	656
+00722	'CuatroEnRaya.p'	470
+00728	'CuatroEnRaya.p'	477
+00728	'CuatroEnRaya.p'	488
+00737	'CuatroEnRaya.p'	478
+00737	'CuatroEnRaya.p'	487
+00746	'CuatroEnRaya.p'	479
+00746	'CuatroEnRaya.p'	486
+00755	'CuatroEnRaya.p'	477
+00762	'CuatroEnRaya.p'	478
+0076f	'CuatroEnRaya.p'	479
+0078a	'CuatroEnRaya.p'	480
+00794	'CuatroEnRaya.p'	481
+007a6	'CuatroEnRaya.p'	483
+007b0	'CuatroEnRaya.p'	484
+007bc	'CuatroEnRaya.p'	486
+007d1	'CuatroEnRaya.p'	487
+007e6	'CuatroEnRaya.p'	488
+007f2	'CuatroEnRaya.p'	656
+007f4	'CuatroEnRaya.p'	494
+007fa	'CuatroEnRaya.p'	495
+00802	'CuatroEnRaya.p'	496
+0080a	'CuatroEnRaya.p'	497
+00810	'CuatroEnRaya.p'	503
+00816	'CuatroEnRaya.p'	505
+00820	'CuatroEnRaya.p'	507
+0082b	'CuatroEnRaya.p'	509
+00835	'CuatroEnRaya.p'	510
+00840	'CuatroEnRaya.p'	512
+0084a	'CuatroEnRaya.p'	517
+00850	'CuatroEnRaya.p'	523
+00861	'CuatroEnRaya.p'	525
+0087c	'CuatroEnRaya.p'	656
+0087e	'CuatroEnRaya.p'	534
+00886	'CuatroEnRaya.p'	535
+0088f	'CuatroEnRaya.p'	537
+00895	'CuatroEnRaya.p'	538
+0089e	'CuatroEnRaya.p'	541
+008c0	'CuatroEnRaya.p'	542
+008d1	'CuatroEnRaya.p'	543
+008e5	'CuatroEnRaya.p'	544
+008f2	'CuatroEnRaya.p'	545
+00901	'CuatroEnRaya.p'	546
+0090b	'CuatroEnRaya.p'	656
+0090d	'CuatroEnRaya.p'	564
+0090d	'CuatroEnRaya.p'	577
+0091c	'CuatroEnRaya.p'	560
+00926	'CuatroEnRaya.p'	564
+00926	'CuatroEnRaya.p'	574
+00935	'CuatroEnRaya.p'	563
+0093f	'CuatroEnRaya.p'	564
+00951	'CuatroEnRaya.p'	565
+00964	'CuatroEnRaya.p'	567
+0097a	'CuatroEnRaya.p'	569
+00984	'CuatroEnRaya.p'	570
+00984	'CuatroEnRaya.p'	571
+00999	'CuatroEnRaya.p'	574
+009a5	'CuatroEnRaya.p'	575
+009b8	'CuatroEnRaya.p'	577
+009c4	'CuatroEnRaya.p'	656
+009c6	'CuatroEnRaya.p'	584
+009d7	'CuatroEnRaya.p'	585
+009dd	'CuatroEnRaya.p'	586
+009e8	'CuatroEnRaya.p'	588
+009f3	'CuatroEnRaya.p'	592
+00a01	'CuatroEnRaya.p'	594
+00a10	'CuatroEnRaya.p'	595
+00a21	'CuatroEnRaya.p'	597
+00a2e	'CuatroEnRaya.p'	656
+00a30	'CuatroEnRaya.p'	606
+00a36	'CuatroEnRaya.p'	611
+00a36	'CuatroEnRaya.p'	616
+00a45	'CuatroEnRaya.p'	611
+00a45	'CuatroEnRaya.p'	615
+00a54	'CuatroEnRaya.p'	611
+00a69	'CuatroEnRaya.p'	613
+00a78	'CuatroEnRaya.p'	615
+00a8d	'CuatroEnRaya.p'	616
+00a99	'CuatroEnRaya.p'	617
+00a9f	'CuatroEnRaya.p'	626
+00aa5	'CuatroEnRaya.p'	627
+00aab	'CuatroEnRaya.p'	628
+00ab1	'CuatroEnRaya.p'	630
+00abe	'CuatroEnRaya.p'	633
+00ac4	'CuatroEnRaya.p'	635
+00aca	'CuatroEnRaya.p'	637
+00ad6	'CuatroEnRaya.p'	638
+00ade	'CuatroEnRaya.p'	640
+00aeb	'CuatroEnRaya.p'	644
+00afc	'CuatroEnRaya.p'	645
+00b0b	'CuatroEnRaya.p'	647
+00b11	'CuatroEnRaya.p'	648
+00b1d	'CuatroEnRaya.p'	650
+00b27	'CuatroEnRaya.p'	653
+00b2d	'CuatroEnRaya.p'	655
+00b31	'CuatroEnRaya.p'	656
